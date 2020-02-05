@@ -2,7 +2,7 @@ import { useQuery } from "@apollo/react-hooks";
 import { NetworkStatus } from "apollo-client";
 import gql from "graphql-tag";
 import ErrorMessage from "./ErrorMessage";
-import PostUpvoter from "./PostUpvoter";
+import ReactMarkdown from "react-markdown";
 
 export const ALL_POSTS_QUERY = gql`
   query {
@@ -10,6 +10,13 @@ export const ALL_POSTS_QUERY = gql`
       _id
       Title
       URL
+      Image {
+        url
+        ext
+        provider
+        size
+      }
+      Description
     }
   }
 `;
@@ -32,7 +39,7 @@ export default function PostList() {
 
   const loadingMorePosts = networkStatus === NetworkStatus.fetchMore;
 
-  const loadMorePosts = () => {
+  /* const loadMorePosts = () => {
     fetchMore({
       variables: {
         skip: allPosts.length
@@ -47,7 +54,7 @@ export default function PostList() {
         });
       }
     });
-  };
+  }; */
   console.log(data);
   if (error) return <ErrorMessage message="Error loading posts." />;
   if (loading && !loadingMorePosts) return <div>Loading</div>;
@@ -61,9 +68,15 @@ export default function PostList() {
         {webs.map((post, index) => (
           <li key={post._id}>
             <div>
-              <span>{index + 1}. </span>
-              <a href={post.URL}>{post.Title}</a>
+              <p>
+                <a href={post.URL}>{post.Title}</a>
+              </p>
             </div>
+            <img
+              width={100}
+              src={`https://strapi.hulea.org/${post.Image.url}`}
+            />
+            <ReactMarkdown source={post.Description} />
           </li>
         ))}
       </ul>
@@ -73,41 +86,61 @@ export default function PostList() {
         </button>
       )} */}
       <style jsx>{`
-        section {
-          padding-bottom: 20px;
-        }
-        li {
-          display: block;
-          margin-bottom: 10px;
-        }
-        div {
-          align-items: center;
-          display: flex;
+        * {
+          box-sizing: border-box;
         }
         a {
-          font-size: 14px;
-          margin-right: 10px;
-          text-decoration: none;
-          padding-bottom: 0;
-          border: 0;
-        }
-        span {
-          font-size: 14px;
-          margin-right: 5px;
+          position: relative;
+          display: block;
         }
         ul {
           margin: 0;
           padding: 0;
+          list-style: none;
         }
-        button:before {
-          align-self: center;
-          border-style: solid;
-          border-width: 6px 4px 0 4px;
-          border-color: #ffffff transparent transparent transparent;
-          content: "";
-          height: 0;
-          margin-right: 5px;
-          width: 0;
+        li {
+          margin-bottom: 2em;
+        }
+        h2 {
+          position: absolute;
+          bottom: 5px;
+          left: 25px;
+          padding: 20px 30px;
+          color: #fff;
+          background-color: #111;
+        }
+        p {
+          background-color: #fff;
+          color: #fff;
+          letter-spacing: -1.5px;
+          font-weight: 700;
+          font-size: 20px;
+          bottom: 0;
+          left: 0;
+          margin-bottom: 2em;
+        }
+        a {
+          color: black;
+        }
+        @media only screen and (max-width: 480px) {
+          h2 {
+            font-size: 15px;
+            padding: 10px 15px;
+            bottom: 0;
+            left: 0;
+            margin: 0;
+          }
+          p {
+            font-size: 20px;
+            padding: 10px 15px;
+            bottom: 0;
+            left: 0;
+            margin: 0;
+          }
+        }
+        img {
+          width: 100%;
+          height: auto;
         }
       `}</style>
     </section>
