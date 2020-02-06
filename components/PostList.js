@@ -20,6 +20,7 @@ export const ALL_POSTS_QUERY = gql`
     }
   }
 `;
+
 export const allPostsQueryVars = {
   skip: 0,
   first: 10
@@ -55,7 +56,7 @@ export default function PostList() {
       }
     });
   }; */
-  console.log(data);
+  //  console.log(data);
   if (error) return <ErrorMessage message="Error loading posts." />;
   if (loading && !loadingMorePosts) return <div>Loading</div>;
 
