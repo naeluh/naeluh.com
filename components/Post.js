@@ -2,13 +2,15 @@ import { useQuery } from "@apollo/react-hooks";
 import { NetworkStatus } from "apollo-client";
 import gql from "graphql-tag";
 import ErrorMessage from "./ErrorMessage";
+import ReactMarkdown from "react-markdown";
+import { useRouter } from "next/router";
 import Head from "next/head";
 
 export const ALL_POSTS_QUERY = gql`
-  query {
-    webs {
-      _id
+  query webs($id: String!) {
+    webs(where: { URL: $id }, limit: 1) {
       Title
+      _id
       Image {
         url
         ext
@@ -18,28 +20,27 @@ export const ALL_POSTS_QUERY = gql`
       Description
       Data
       URL
+      Link
       createdAt
       updatedAt
     }
   }
 `;
 
-export const allPostsQueryVars = {
-  skip: 0,
-  first: 10
-};
+export default function Post() {
+  const router = useRouter();
 
-export default function PostList(title, extraClass) {
-  const { loading, error, data, fetchMore, networkStatus } = useQuery(
-    ALL_POSTS_QUERY,
-    {
-      // variables: allPostsQueryVars,
-      // Setting this value to true will make the component rerender when
-      // the "networkStatus" changes, so we are able to know if it is fetching
-      // more data
-      notifyOnNetworkStatusChange: true
-    }
-  );
+  const allPostsQueryVars = {
+    id: router.query.id
+  };
+
+  const { loading, error, data, networkStatus } = useQuery(ALL_POSTS_QUERY, {
+    variables: allPostsQueryVars,
+    // Setting this value to true will make the component rerender when
+    // the "networkStatus" changes, so we are able to know if it is fetching
+    // more data
+    notifyOnNetworkStatusChange: true
+  });
 
   const loadingMorePosts = networkStatus === NetworkStatus.fetchMore;
 
@@ -51,37 +52,32 @@ export default function PostList(title, extraClass) {
   return (
     <section>
       <Head>
-        <>
-          <title>Work</title>
-          <meta name="title" content="Nick Hulea's Work and Projects" />
-          <meta name="description" content="Nick Hulea's Work and Projects" />
-        </>
+        <title>{webs[0].Title}</title>
+        <meta name="title" content={webs[0].Title} />
+        <meta name="description" content={webs[0].Description} />
       </Head>
-      <h1>Work</h1>
-      <ul>
-        {webs.map((post, index) =>
-          post.URL !== title ? (
-            <li key={index + 1}>
-              <a props={post._id} href={`/work/${post.Data.Link}`}>
-                {post.Image !== null /* && title === undefined */ ? (
-                  <span
-                    className={`imgHero ${extraClass}__image`}
-                    style={{
-                      backgroundImage: `url(https://strapi.hulea.org/${post.Image.url})`
-                    }}
-                  />
-                ) : (
-                  ""
-                )}
 
-                <h2>{post.Title}</h2>
-              </a>
-            </li>
+      {webs.map(post => (
+        <div key={post.id}>
+          <h1>{post.Title}</h1>
+          {post.Image !== null ? (
+            <span
+              id="image"
+              className="imgHero"
+              style={{
+                backgroundImage: `url(https://strapi.hulea.org/${post.Image.url})`
+              }}
+            />
           ) : (
             ""
-          )
-        )}
-      </ul>
+          )}
+          <ReactMarkdown source={post.Description} />
+          <a className="dash-link" target="_blank" href={post.Link}>
+            go to website >
+          </a>
+        </div>
+      ))}
+
       <style jsx>{`
         * {
           box-sizing: border-box;
@@ -105,7 +101,6 @@ export default function PostList(title, extraClass) {
           padding: 20px 30px;
           color: #fff;
           background-color: #111;
-          font-size: 20px;
         }
         p {
           background-color: #111;
@@ -121,6 +116,13 @@ export default function PostList(title, extraClass) {
         @media only screen and (max-width: 480px) {
           h2 {
             font-size: 15px;
+            padding: 10px 15px;
+            bottom: 0;
+            left: 0;
+            margin: 0;
+          }
+          p {
+            font-size: 20px;
             padding: 10px 15px;
             bottom: 0;
             left: 0;

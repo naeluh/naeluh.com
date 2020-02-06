@@ -1,20 +1,14 @@
-import React from 'react'
-import withApollo from '../../lib/withApollo'
-import App from '../../components/App'
-import Header from '../../components/Header'
-import PostList from '../../components/PostList'
-import Footer from '../../components/Footer'
+import React from "react";
+import App from "../../components/App";
+import Header from "../../components/Header";
+import PostList from "../../components/PostList";
+import Footer from "../../components/Footer";
+import { withApollo } from "../../lib/apollo";
 
-class BlogIndex extends React.Component {
-  render () {
-    return (
-      <App>
-        <Header />
-        <PostList />
-        <Footer />
-      </App>
-    )
-  }
-}
-
-export default withApollo(BlogIndex)
+export default withApollo(() => (
+  <App>
+    <Header />
+    <PostList />
+    <Footer />
+  </App>
+));
