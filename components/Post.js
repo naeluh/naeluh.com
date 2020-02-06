@@ -5,6 +5,7 @@ import ErrorMessage from "./ErrorMessage";
 import ReactMarkdown from "react-markdown";
 import { useRouter } from "next/router";
 import Head from "next/head";
+import PostList from "../components/PostList";
 
 export const ALL_POSTS_QUERY = gql`
   query webs($id: String!) {
@@ -77,6 +78,8 @@ export default function Post() {
           </a>
         </div>
       ))}
+
+      <PostList title={webs[0].URL} extraClass="worklist" />
 
       <style jsx>{`
         * {

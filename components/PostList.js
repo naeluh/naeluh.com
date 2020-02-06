@@ -29,7 +29,7 @@ export const allPostsQueryVars = {
   first: 10
 };
 
-export default function PostList(title, extraClass) {
+export default function PostList({ title, extraClass }) {
   const { loading, error, data, fetchMore, networkStatus } = useQuery(
     ALL_POSTS_QUERY,
     {
@@ -49,7 +49,7 @@ export default function PostList(title, extraClass) {
   const { webs } = data;
 
   return (
-    <section>
+    <section className={extraClass}>
       <Head>
         <>
           <title>Work</title>
@@ -57,7 +57,7 @@ export default function PostList(title, extraClass) {
           <meta name="description" content="Nick Hulea's Work and Projects" />
         </>
       </Head>
-      <h1>Work</h1>
+      {title === undefined ? <h1>Work</h1> : ""}
       <ul>
         {webs.map((post, index) =>
           post.URL !== title ? (
@@ -73,8 +73,11 @@ export default function PostList(title, extraClass) {
                 ) : (
                   ""
                 )}
-
-                <h2>{post.Title}</h2>
+                {title === undefined ? (
+                  <h2>{post.Title}</h2>
+                ) : (
+                  <p>{post.Title}</p>
+                )}
               </a>
             </li>
           ) : (
@@ -105,7 +108,6 @@ export default function PostList(title, extraClass) {
           padding: 20px 30px;
           color: #fff;
           background-color: #111;
-          font-size: 20px;
         }
         p {
           background-color: #111;
@@ -118,9 +120,53 @@ export default function PostList(title, extraClass) {
           left: 0;
           margin: 0;
         }
+        .worklist {
+          padding: 0;
+        }
+        .worklist > ul {
+          display: flex;
+          flex-flow: row wrap;
+          justify-content: flex-start;
+        }
+        .worklist > ul > li {
+          height: 250px;
+          flex-basis: 25%;
+          -ms-flex: auto;
+          width: 400px;
+          position: relative;
+          padding: 10px;
+          box-sizing: border-box;
+        }
+        @media (max-width: 1333px) {
+          .worklist > ul > li {
+            flex-basis: 33.33%;
+          }
+        }
+        @media (max-width: 1073px) {
+          .worklist > ul > li {
+            flex-basis: 33.33%;
+          }
+        }
+        @media (max-width: 815px) {
+          .worklist > ul > li {
+            flex-basis: 50%;
+          }
+        }
+        @media (max-width: 555px) {
+          .worklist > ul > li {
+            flex-basis: 100%;
+          }
+        }
         @media only screen and (max-width: 480px) {
           h2 {
-            font-size: 15px;
+            font-size: 20px;
+            padding: 10px 15px;
+            bottom: 0;
+            left: 0;
+            margin: 0;
+          }
+          p {
+            font-size: 20px;
             padding: 10px 15px;
             bottom: 0;
             left: 0;
