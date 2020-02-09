@@ -8,6 +8,20 @@ module.exports = {
       console.log("Modified files:", git.modifiedFiles);
     }
 
+    /* Do stuff only if css code edited */
+    const cssFiles = git.fileMatch("**/*.css");
+    console.log("css files git info:", cssFiles);
+    /* Do stuff only if css files edited */
+
+    if (cssFiles.deleted.length !== 0) {
+      console.log(">> Run thing because css files have been deleted\n");
+      console.log(cssFiles);
+    }
+
+    /* Do stuff only if js code edited */
+    const jsFiles = git.fileMatch("**/*.js");
+    console.log("js files git info:", jsFiles);
+
     /* Do stuff only if html code edited */
     const htmlFiles = git.fileMatch("**/*.html");
     console.log("html files git info:", htmlFiles);
@@ -25,15 +39,8 @@ module.exports = {
         ">> Run thing because Markdown files have been created/changed/deleted\n"
       );
     }
-
-    /* Do stuff only if css files edited */
-    const cssFiles = git.fileMatch("**/*.css");
-    if (cssFiles.deleted.length !== 0) {
-      console.log(">> Run thing because css files have been deleted\n");
-      console.log(cssFiles);
-    }
-  },
-  onPreBuild: () => {
+  }
+  /* onPreBuild: () => {
     console.log("Hello world from onPreBuild event!");
   },
   onBuild: () => {
@@ -53,5 +60,5 @@ module.exports = {
   },
   onEnd: () => {
     console.log("Do thing on onEnd event");
-  }
+  } */
 };

@@ -1,30 +1,30 @@
 # Inline `build.lifecycle` commands can be defined
 build:
-  lifecycle:
-    onInit:
-      - export VALUE=lol
-      - echo "much wow"
-    onGetCache:
-      - echo 'curl custom cache'
-    onPreBuild: echo "$VALUE"
-    onBuild: |
-      echo 'Hello Netlify Build!'
-      npm run build:netlify
+  # lifecycle:
+  # onInit:
+  # - export VALUE=lol
+  # - echo "much wow"
+  # onGetCache:
+  # - echo 'curl custom cache'
+  # onPreBuild: # echo "$VALUE"
+  # onBuild: |
+  # echo 'Hello Netlify Build!'
+  # npm run build:netlify
   publish: out
 
 # Attach our plugins
 plugins:
   - package: ./plugins/netlify-plugin-hello-world
-  - package: netlify-plugin-image-optim
-  - package: "@netlify/plugin-sitemap"
-    config:
-      buildDir: out
-      baseUrl: https://naeluh.com
-  - config:
-      entryPoints:
-        - "out/**/*.html"
-      recursive: true
-      fontDisplay: swap
-      inlineCss: false
-      inlineFonts: false
-    package: netlify-plugin-subfont
+  # - package: netlify-plugin-image-optim
+  # - package: "@netlify/plugin-sitemap"
+  # config:
+  # buildDir: out
+  # baseUrl: https://naeluh.com
+  # - config:
+  # entryPoints:
+  # - "out/**/*.html"
+  # recursive: true
+  # fontDisplay: swap
+  # inlineCss: false
+  # inlineFonts: false
+  # package: netlify-plugin-subfont
