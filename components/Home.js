@@ -1,21 +1,22 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
-import ReactDOM from "react-dom";
+import useWindowSize from "../hooks/useWindowSize";
+import useDebounce from "../hooks/useDebounce";
 import Head from "next/head";
 
-class Home extends React.Component {
-  state = {
-    height: "",
-    width: "",
-    color: "",
-    r: ""
-  };
+export default function HomeNew() {
+  const [height, setHeight] = useState("");
+  const [width, setWidth] = useState("");
+  const [color, setColor] = useState("");
+  const [random, setRandom] = useState("");
+  const size = useWindowSize();
+  const debouncedSize = useDebounce(size, 100);
 
-  getRandomArbitrary = (min, max) => {
+  const getRandomArbitrary = (min, max) => {
     return Math.random() * (max - min) + min;
   };
 
-  color = () => {
+  const randomColor = () => {
     return (
       "#" +
       Math.random()
@@ -25,118 +26,107 @@ class Home extends React.Component {
     );
   };
 
-  r = this.getRandomArbitrary(
-    this.getRandomArbitrary(1.3432, 270.6546),
-    this.getRandomArbitrary(1.3432, 70.6546)
+  const r = getRandomArbitrary(
+    getRandomArbitrary(1.3432, 270.6546),
+    getRandomArbitrary(1.3432, 70.6546)
   );
 
-  componentDidMount() {
+  const updateBlock = () => {
     document.body.style.overflowX = "hidden";
-    this.setState({
-      height: window.innerHeight,
-      width: window.innerWidth,
-      color: this.color(),
-      r: "rotate3d(1, 1, 1, " + this.r + "deg)"
-    });
-    window.addEventListener("resize", () => {
-      this.setState({
-        height: window.innerHeight,
-        width: window.innerWidth,
-        color: this.color(),
-        r: "rotate3d(1, 1, 1, " + this.r + "deg)"
-      });
-    });
-    window.addEventListener("orientationchange", () => {
-      this.setState({
-        height: window.innerHeight,
-        width: window.innerWidth,
-        color: this.color(),
-        r: "rotate3d(1, 1, 1, " + this.r + "deg)"
-      });
-    });
-  }
+    setHeight(size.height);
+    setWidth(size.width);
+    setColor(randomColor());
+    setRandom(`rotate(${r}deg)`);
+    // setRandom(`rotate3d(1,1,0,${r}deg)`);
+  };
 
-  render() {
-    return (
-      <section>
-        <Head>
-          <title>Nick Hulea</title>
-          <meta name="title" content="Nick Hulea's Website!" />
-          <meta name="description" content="Nick Hulea's Website!" />
-        </Head>
+  useEffect(() => {
+    window.addEventListener("resize", updateBlock);
+    window.addEventListener("orientationchange", updateBlock);
+  }, []);
 
-        <h1>Welcome!</h1>
+  useEffect(() => {
+    if (debouncedSize) {
+      updateBlock();
+    }
+  }, [debouncedSize]);
 
-        <p>Hello you have arrived at the website of Nick Hulea !</p>
+  return (
+    <section>
+      <Head>
+        <title>Nick Hulea</title>
+        <meta name="title" content="Nick Hulea&#39;s Website!" />
+        <meta name="description" content="Nick Hulea&#39;s Website!" />
+      </Head>
 
-        <p>
-          Samples of my work can be found{" "}
-          <Link href="/work">
-            <a prefetch="true">here</a>
-          </Link>
-          .
-        </p>
+      <h1>Welcome!</h1>
 
-        <p>
-          If you would like to contact me or if you have any questions click{" "}
-          <Link href="/contact">
-            <a prefetch="true">here</a>
-          </Link>
-          .
-        </p>
+      <p>Hello you have arrived at the website of Nick Hulea !</p>
 
-        <div
-          id="block"
-          ref="block"
-          style={{
-            transform: this.state.r,
-            backgroundColor: this.state.color,
-            height: this.state.height,
-            width: this.state.width
-          }}
-        />
+      <p>
+        Samples of my work can be found{" "}
+        <Link href="/work">
+          <a prefetch="true">here</a>
+        </Link>
+        .
+      </p>
 
-        <div className="clear" />
+      <p>
+        If you would like to contact me or if you have any questions click{" "}
+        <Link href="/contact">
+          <a prefetch="true">here</a>
+        </Link>
+        .
+      </p>
 
-        <style jsx>{`
+      <div
+        id="block"
+        style={{
+          transform: random,
+          backgroundColor: color,
+          height: height,
+          width: width
+        }}
+      />
+
+      <div className="clear" />
+
+      <style jsx>{`
+        h1 {
+          font-weight: 900;
+          font-size: 100px;
+          line-height: 1;
+          letter-spacing: -0.05em;
+        }
+        p {
+          font-weight: 600;
+          font-size: 45px;
+          line-height: 1.1;
+          letter-spacing: -0.03em;
+        }
+        @media only screen and (max-width: 480px) {
           h1 {
-            font-weight: 900;
-            font-size: 100px;
-            line-height: 1;
-            letter-spacing: -0.05em;
+            font-size: 45px;
           }
           p {
-            font-weight: 600;
-            font-size: 45px;
-            line-height: 1.1;
-            letter-spacing: -0.03em;
+            font-size: 35px;
           }
-          @media only screen and (max-width: 480px) {
-            h1 {
-              font-size: 45px;
-            }
-            p {
-              font-size: 35px;
-            }
-          }
-          body,
-          #block {
-            overflow-x: hidden;
-          }
-          #block {
-            position: fixed;
-            top: 0;
-            left: 0;
-            z-index: -1;
-          }
-          .clear {
-            clear: both;
-            height: 75vh;
-          }
-        `}</style>
-      </section>
-    );
-  }
+        }
+        body,
+        #block {
+          overflow-x: hidden;
+        }
+        #block {
+          position: fixed;
+          top: 0;
+          left: 0;
+          z-index: -1;
+        }
+        .clear {
+          clear: both;
+          height: 75vh;
+        }
+      `}</style>
+    </section>
+  );
 }
-
-export default Home;

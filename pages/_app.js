@@ -29,13 +29,15 @@ export default class MyApp extends App {
     const { Component, pageProps } = this.props;
     return (
       <>
-        <Head>
+        <Head> 
+          <link href="https://unpkg.com/@primer/css/dist/primer.css" rel="stylesheet" />
           <style>{`body { margin: 0 } /* custom!! Changed */`}</style>
           <meta
             name="viewport"
             content="width=device-width, initial-scale=1.0"
           ></meta>
           <meta httpEquiv="X-UA-Compatible" content="IE=edge"></meta>
+         
         </Head>
         <Component {...pageProps} />
       </>

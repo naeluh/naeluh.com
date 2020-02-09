@@ -126,35 +126,36 @@ export default function PostList({ title, extraClass }) {
         .worklist > ul {
           display: flex;
           flex-flow: row wrap;
-          justify-content: flex-start;
+          justify-content: space-between;
         }
         .worklist > ul > li {
-          height: 250px;
-          flex-basis: 25%;
-          -ms-flex: auto;
-          width: 400px;
+          width: 32%;
+          margin-top: 10px;
+          margin-bottom: 10px;
           position: relative;
-          padding: 10px;
           box-sizing: border-box;
         }
-        @media (max-width: 1333px) {
-          .worklist > ul > li {
-            flex-basis: 33.33%;
-          }
-        }
-        @media (max-width: 1073px) {
-          .worklist > ul > li {
-            flex-basis: 33.33%;
-          }
+        .worklist > ul > li > a > span.imgHero {
+          clear: both;
+          display: block;
+          margin-bottom: 0;
+          padding-bottom: 40.7%;
+          border-top: 20px solid #111;
+          border-left: 20px solid #111;
+          border-right: 20px solid #111;
+          background-size: 140%;
+          background-color: #111;
+          background-repeat: no-repeat;
+          background-position: center center;
         }
         @media (max-width: 815px) {
           .worklist > ul > li {
-            flex-basis: 50%;
+            width: 48%;
           }
         }
         @media (max-width: 555px) {
           .worklist > ul > li {
-            flex-basis: 100%;
+            width: 100%;
           }
         }
         @media only screen and (max-width: 480px) {

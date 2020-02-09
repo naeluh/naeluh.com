@@ -1,9 +1,9 @@
-const fetch = require("isomorphic-unfetch");
+const fetch = require('isomorphic-unfetch');
 
 module.exports = {
-  async exportPathMap() {
+  async exportPathMap () {
     // we fetch our list of posts, this allow us to dynamically generate the exported pages
-    const response = await fetch("https://strapi.hulea.org/webs");
+    const response = await fetch('https://strapi.hulea.org/webs');
     const postList = await response.json();
 
     // console.log(postList);
@@ -24,9 +24,9 @@ module.exports = {
 
     // combine the map of post pages with the home
     return Object.assign({}, pages, {
-      "/": { page: "/" },
-      "/about": { page: "/about" },
-      "/work": { page: "/work" }
+      '/': { page: '/' },
+      '/about': { page: '/about' },
+      '/work': { page: '/work' }
     });
   }
 };
