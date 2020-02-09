@@ -12,8 +12,6 @@
   "dependencies": {
     "@apollo/react-hooks": "3.0.0",
     "@apollo/react-ssr": "3.0.0",
-    "@primer/components": "^15.2.3",
-    "@primer/css": "^14.2.0",
     "@zeit/next-css": "^1.0.1",
     "@zeit/next-sass": "^1.0.1",
     "apollo-cache-inmemory": "1.6.3",
@@ -23,6 +21,7 @@
     "graphql": "^14.0.2",
     "graphql-tag": "2.10.1",
     "isomorphic-unfetch": "^3.0.0",
+    "netlify-plugin-image-optim": "^0.2.0",
     "next": "latest",
     "next-fonts": "^1.0.3",
     "next-preload-headers": "^3.0.4",
@@ -37,6 +36,8 @@
   },
   "license": "ISC",
   "devDependencies": {
-    "babel-plugin-graphql-tag": "^2.5.0"
+    "@netlify/plugin-sitemap": "^0.1.0",
+    "babel-plugin-graphql-tag": "^2.5.0",
+    "netlify-plugin-subfont": "^3.0.1"
   }
 }

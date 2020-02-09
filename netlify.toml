@@ -1,6 +1,0 @@
-[build]
-publish = "out"
-command = "npm run build:netlify"
-functions = "functions"
-
-[context.production.environment]

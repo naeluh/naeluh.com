@@ -1,0 +1,21 @@
+build:
+  command: npm run build:netlify
+  publish: out
+  functions: functions
+
+# Attach our plugins
+plugins:
+  - package: ./plugins/netlify-plugin-hello-world
+  - package: netlify-plugin-image-optim
+  - package: "@netlify/plugin-sitemap"
+    config:
+      buildDir: out
+      baseUrl: https://naeluh.com
+  - config:
+      entryPoints:
+        - "out/**/*.html"
+      recursive: true
+      fontDisplay: swap
+      inlineCss: false
+      inlineFonts: false
+    package: netlify-plugin-subfont
