@@ -1,7 +1,16 @@
+# Inline `build.lifecycle` commands can be defined
 build:
-  command: npm run build:netlify
+  lifecycle:
+    onInit:
+      - export VALUE=lol
+      - echo "much wow"
+    onGetCache:
+      - echo 'curl custom cache'
+    onPreBuild: echo "$VALUE"
+    onBuild: |
+      echo 'Hello Netlify Build!'
+      npm run build:netlify
   publish: out
-  functions: functions
 
 # Attach our plugins
 plugins:
