@@ -4,13 +4,8 @@ require('dotenv').config();
 module.exports = {
   name: 'netlify-plugin-design',
   onInit: async ({ utils, constants, pluginConfig, netlifyConfig }) => {
-    console.log(utils);
-    console.log(constants);
-    console.log(pluginConfig.siteId);
-    console.log(netlifyConfig);
-    // console.log(process.env);
+    console.group(utils, constants, pluginConfig, netlifyConfig);
 
-    // const siteId = pluginConfig.siteId;
     const client = new NetlifyAPI(process.env.SITE_TOKEN);
     const sitesDeploys = await client.listSiteDeploys({ siteId: process.env.SITE_ID });
 
