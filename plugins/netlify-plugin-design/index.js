@@ -1,4 +1,5 @@
 const NetlifyAPI = require('netlify');
+require('dotenv').config();
 
 module.exports = {
   name: 'netlify-plugin-design',
@@ -7,10 +8,11 @@ module.exports = {
     console.log(constants);
     console.log(pluginConfig.siteId);
     console.log(netlifyConfig);
+    console.log(process.env);
 
-    const siteId = pluginConfig.siteId;
-    const client = new NetlifyAPI(SITE_TOKEN);
-    const sitesDeploys = await client.listSiteDeploys({ siteId: SITE_ID });
+    // const siteId = pluginConfig.siteId;
+    const client = new NetlifyAPI(process.env.SITE_TOKEN);
+    const sitesDeploys = await client.listSiteDeploys({ siteId: process.env.SITE_ID });
 
     sitesDeploys.map((deploys) => {
       console.log(deploys.commit_url);
