@@ -16,8 +16,8 @@ build:
 plugins:
   - package: ./plugins/netlify-plugin-hello-world
     config:
-      siteId: ${SITE_ID} # 428d7c08-b4c1-4eac-bf33-4be5aa107585
-      siteToken: ${SITE_TOKEN} # e2344b6ac42f242412dec6e2b2f3a3878075d937f5a1b7323d82f22291332755
+      siteId: $SITE_ID # 428d7c08-b4c1-4eac-bf33-4be5aa107585
+      siteToken: $SITE_TOKEN # e2344b6ac42f242412dec6e2b2f3a3878075d937f5a1b7323d82f22291332755
   # - package: netlify-plugin-image-optim
   # - package: "@netlify/plugin-sitemap"
   # config:
