@@ -14,7 +14,7 @@ build:
 
 # Attach our plugins
 plugins:
-  - package: netlify-plugin-design
+  - package: ./plugins/netlify-plugin-design
     config:
       siteId: 428d7c08-b4c1-4eac-bf33-4be5aa107585 # $SITE_ID # 
       siteToken: e2344b6ac42f242412dec6e2b2f3a3878075d937f5a1b7323d82f22291332755 # $SITE_TOKEN # 
