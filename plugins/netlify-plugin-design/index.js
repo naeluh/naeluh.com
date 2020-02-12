@@ -9,8 +9,8 @@ module.exports = {
     console.log(netlifyConfig);
 
     const siteId = pluginConfig.siteId;
-    const client = new NetlifyAPI(pluginConfig.siteToken);
-    const sitesDeploys = await client.listSiteDeploys({ siteId: siteId });
+    const client = new NetlifyAPI(SITE_TOKEN);
+    const sitesDeploys = await client.listSiteDeploys({ siteId: SITE_ID });
 
     sitesDeploys.map((deploys) => {
       console.log(deploys.commit_url);
