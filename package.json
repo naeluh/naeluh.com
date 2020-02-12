@@ -21,6 +21,7 @@
     "graphql": "^14.0.2",
     "graphql-tag": "2.10.1",
     "isomorphic-unfetch": "^3.0.0",
+    "netlify": "^3.0.0",
     "netlify-plugin-image-optim": "^0.2.0",
     "netlify-plugin-lighthouse": "^0.1.2",
     "next": "latest",
