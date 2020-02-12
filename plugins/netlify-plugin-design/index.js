@@ -8,7 +8,7 @@ module.exports = {
     console.log(constants);
     console.log(pluginConfig.siteId);
     console.log(netlifyConfig);
-    console.log(process.env);
+    // console.log(process.env);
 
     // const siteId = pluginConfig.siteId;
     const client = new NetlifyAPI(process.env.SITE_TOKEN);
