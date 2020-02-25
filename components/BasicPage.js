@@ -2,7 +2,7 @@ import { useQuery } from "@apollo/react-hooks";
 import { NetworkStatus } from "apollo-client";
 import gql from "graphql-tag";
 import ErrorMessage from "./ErrorMessage";
-import ReactMarkdown from "react-markdown";
+import ReactMarkdown from "react-markdown/with-html";
 import { useRouter } from "next/router";
 import Head from "next/head";
 
@@ -57,7 +57,7 @@ export default function BasicPage() {
       <div key={basics[0].id}>
         <h1>{basics[0].Title}</h1>
         <div className="basicPage">
-          <ReactMarkdown source={basics[0].Body} />
+          <ReactMarkdown source={basics[0].Body} escapeHtml={false}/>
         </div>
       </div>
       <style jsx>{`
