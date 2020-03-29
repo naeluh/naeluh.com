@@ -1,5 +1,5 @@
-import React from "react";
-import fetch from "isomorphic-unfetch";
+import React from 'react';
+import fetch from 'isomorphic-unfetch';
 
 class FormLabel extends React.Component {
   render() {
@@ -10,12 +10,12 @@ class FormLabel extends React.Component {
 class Form extends React.Component {
   constructor(props) {
     super(props);
-
+    this.ContactForm = React.createRef();
     this.state = {
-      first_name: "",
-      last_name: "",
-      email: "",
-      message: "",
+      first_name: '',
+      last_name: '',
+      email: '',
+      message: '',
       isActive: true
     };
 
@@ -23,7 +23,11 @@ class Form extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  handleChange = e => {
+  encode = (data) => {
+    return Object.keys(data).map((key) => encodeURIComponent(key) + '=' + encodeURIComponent(data[key])).join('&');
+  };
+
+  handleChange = (e) => {
     let newState = {};
 
     newState[e.target.name] = e.target.value;
@@ -31,50 +35,30 @@ class Form extends React.Component {
     this.setState(newState);
   };
 
-  handleSubmit = e => {
+  handleSubmit = (e) => {
     e.preventDefault();
 
-    const toggleNav = () => {
-      this.setState(prevState => ({
+    const toggleThanks = () => {
+      this.setState((prevState) => ({
         isActive: !prevState.isActive
       }));
       setTimeout(() => {
-        this.setState(prevState => ({
+        this.setState((prevState) => ({
           isActive: !prevState.isActive
         }));
       }, 2000);
     };
 
-    let formData = {
-      first_name: this.state.first_name,
-      last_name: this.state.last_name,
-      email: this.state.email,
-      message: this.state.message
-    };
-
-    if (
-      formData.first_name.length < 1 ||
-      formData.email.length < 1 ||
-      formData.last_name.length < 1 ||
-      formData.message.length < 1
-    ) {
-      return false;
-    }
-
-    let body = new FormData();
-
-    body.append("first_name", formData.first_name);
-    body.append("last_name", formData.last_name);
-    body.append("email", formData.email);
-    body.append("message", formData.message);
-
-    fetch("https://hulea.org/contact-form.php", {
-      method: "POST",
-      mode: "cors",
-      body: body
+    fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: this.encode({
+        'form-name': 'contact',
+        ...this.state
+      })
     })
       .then(function(response) {
-        toggleNav();
+        toggleThanks();
         if (response.status !== 200) {
           // dispatch(setError(response.status + '===>' + response.statusText + '===>' + response.url))
         }
@@ -86,15 +70,15 @@ class Form extends React.Component {
         ///dispatch(setData(json, q))
       })
       .catch(function(err) {
-        alert("There was some problem with sending your message.");
+        alert('There was some problem with sending your message.');
         console.log(err);
       });
 
     this.setState({
-      first_name: "",
-      last_name: "",
-      email: "",
-      message: "",
+      first_name: '',
+      last_name: '',
+      email: '',
+      message: '',
       isActive: true
     });
   };
@@ -103,71 +87,71 @@ class Form extends React.Component {
     return (
       <section>
         <h1>Contact</h1>
-        <form className="react-form" onSubmit={this.handleSubmit}>
-          <h3 className={this.state.isActive ? "hide" : ""}>Thanks!</h3>
+        <form name='form-name' data-netlify='true' netlify-honeypot='bot-field' hidden>
+          <input type='text' name='name' />
+          <input type='email' name='email' />
+          <textarea name='message' />
+        </form>
+        <form ref='contact' name='contact' data-netlify='true' className='react-form' onSubmit={this.handleSubmit}>
+          <h3 className={this.state.isActive ? 'hide' : ''}>Thanks!</h3>
 
-          <fieldset className="form-group">
-            <FormLabel htmlFor="first_name" title="First Name:" />
+          <fieldset className='form-group'>
+            <FormLabel htmlFor='first_name' title='First Name:' />
 
             <input
-              id="first_name"
-              className="form-input"
-              name="first_name"
-              type="text"
+              id='first_name'
+              className='form-input'
+              name='first_name'
+              type='text'
               required
               onChange={this.handleChange}
               value={this.state.first_name}
             />
           </fieldset>
 
-          <fieldset className="form-group">
-            <FormLabel htmlFor="last_name" title="Last Name:" />
+          <fieldset className='form-group'>
+            <FormLabel htmlFor='last_name' title='Last Name:' />
 
             <input
-              id="last_name"
-              className="form-input"
-              name="last_name"
-              type="text"
+              id='last_name'
+              className='form-input'
+              name='last_name'
+              type='text'
               required
               onChange={this.handleChange}
               value={this.state.last_name}
             />
           </fieldset>
 
-          <fieldset className="form-group">
-            <FormLabel htmlFor="email" title="Email:" />
+          <fieldset className='form-group'>
+            <FormLabel htmlFor='email' title='Email:' />
 
             <input
-              id="email"
-              className="form-input"
-              name="email"
-              type="email"
+              id='email'
+              className='form-input'
+              name='email'
+              type='email'
               required
               onChange={this.handleChange}
               value={this.state.email}
             />
           </fieldset>
 
-          <fieldset className="form-group">
-            <FormLabel htmlFor="message" title="Message:" />
+          <fieldset className='form-group'>
+            <FormLabel htmlFor='message' title='Message:' />
 
             <textarea
-              id="message"
-              className="form-textarea"
-              name="message"
+              id='message'
+              className='form-textarea'
+              name='message'
               required
               onChange={this.handleChange}
               value={this.state.message}
             />
           </fieldset>
 
-          <fieldset className="form-group">
-            <input
-              id="formButton"
-              className="button"
-              type="submit"
-              placeholder="Send message"
-            />
+          <fieldset className='form-group'>
+            <input id='formButton' className='button' type='submit' placeholder='Send message' />
           </fieldset>
           <style jsx>{`
             .react-form {
