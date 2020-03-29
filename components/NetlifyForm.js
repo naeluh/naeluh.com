@@ -26,7 +26,7 @@ export default function NetlifyForm() {
         <input type='email' name='email' />
         <textarea name='message' />
       </form>
-      <form className='react-form' name='contact' method='post' onSubmit={handleSubmit}>
+      <form netlify className='react-form' name='contact' method='post' onSubmit={handleSubmit}>
         <input type='hidden' name='form-name' value='contact' />
         <fieldset className='form-group'>
           <label>
