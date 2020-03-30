@@ -11,7 +11,8 @@ export default function Form() {
     last_name: '',
     email: '',
     message: '',
-    isActive: true
+    isActive: true,
+    fetchMessage: ''
   });
   const encode = (data) => {
     return Object.keys(data).map((key) => encodeURIComponent(key) + '=' + encodeURIComponent(data[key])).join('&');
@@ -19,6 +20,19 @@ export default function Form() {
 
   const handleChange = (e) => {
     setState({ ...state, [e.target.name]: e.target.value });
+  };
+
+  const toggleMessage = (message) => {
+    setState((prevState) => ({
+      isActive: !prevState.isActive,
+      fetchMessage: message
+    }));
+    setTimeout(() => {
+      setState((prevState) => ({
+        isActive: !prevState.isActive,
+        fetchMessage: message
+      }));
+    }, 2000);
   };
 
   const handleSubmit = (e) => {
@@ -34,15 +48,15 @@ export default function Form() {
       })
     })
       .then(function(response) {
-        alert('success');
-        console.log(response);
+        toggleMessage('Thanks!');
+        // console.log(response);
       })
       .then(function(json) {
-        console.log(json);
+        // console.log(json);
       })
       .catch(function(err) {
-        alert('There was some problem with sending your message.');
-        console.log(err);
+        toggleMessage('There was some problem with sending your message.');
+        // console.log(err);
       });
 
     setState({
@@ -57,6 +71,7 @@ export default function Form() {
   return (
     <section>
       <h1>Contact</h1>
+      <h3 className={state.isActive ? 'hide' : ''}>{state.fetchMessage}</h3>
       <form
         name='contact'
         method='post'
