@@ -24,17 +24,6 @@ export default function Form() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const toggleThanks = () => {
-      this.setState((prevState) => ({
-        isActive: !prevState.isActive
-      }));
-      setTimeout(() => {
-        this.setState((prevState) => ({
-          isActive: !prevState.isActive
-        }));
-      }, 2000);
-    };
-
     const form = e.target;
     fetch('/', {
       method: 'POST',
@@ -45,16 +34,11 @@ export default function Form() {
       })
     })
       .then(function(response) {
-        toggleThanks();
-        if (response.status !== 200) {
-          // dispatch(setError(response.status + '===>' + response.statusText + '===>' + response.url))
-        }
-        return response.json();
+        alert('success');
+        console.log(response);
       })
       .then(function(json) {
-        // if (confirm('Thank you for your message. Can I erase the form?')) {
-        // }
-        ///dispatch(setData(json, q))
+        console.log(json);
       })
       .catch(function(err) {
         alert('There was some problem with sending your message.');
@@ -82,8 +66,6 @@ export default function Form() {
         onSubmit={handleSubmit}
       >
         <input type='hidden' name='form-name' value='contact' />
-        <h3 className={state.isActive ? 'hide' : ''}>Thanks!</h3>
-
         <fieldset className='form-group'>
           <FormLabel htmlFor='first_name' title='First Name:' />
 
