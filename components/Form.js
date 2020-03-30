@@ -29,8 +29,7 @@ export default function Form() {
     }));
     setTimeout(() => {
       setState((prevState) => ({
-        isActive: !prevState.isActive,
-        fetchMessage: message
+        isActive: !prevState.isActive
       }));
     }, 2000);
   };
