@@ -78,7 +78,6 @@ export default function Form() {
         method='post'
         data-netlify='true'
         data-netlify-honeypot='bot-field'
-        ref='contact'
         className='react-form'
         onSubmit={handleSubmit}
       >
@@ -117,7 +116,19 @@ export default function Form() {
         </fieldset>
 
         <fieldset className='form-group'>
-          <input id='formButton' className='button' type='submit' placeholder='Send message' />
+          <button
+            style={{
+              width: '100%',
+              display: 'flex',
+              justifyContent: 'center'
+            }}
+            id='formButton'
+            className='button'
+            placeholder='Send message'
+            type='submit'
+          >
+            Send
+          </button>
         </fieldset>
         <style jsx>{`
           .react-form {
