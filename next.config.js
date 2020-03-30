@@ -1,7 +1,7 @@
 const fetch = require('isomorphic-unfetch');
 
 module.exports = {
-  async exportPathMap () {
+  async exportPathMap() {
     // we fetch our list of posts, this allow us to dynamically generate the exported pages
     const response = await fetch('https://strapi.hulea.org/webs');
     const postList = await response.json();
@@ -26,6 +26,7 @@ module.exports = {
     return Object.assign({}, pages, {
       '/': { page: '/' },
       '/about': { page: '/about' },
+      '/contact': { page: '/contact' },
       '/work': { page: '/work' }
     });
   }
