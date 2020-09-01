@@ -1,4 +1,4 @@
-export default ({ children }) => (
+const App = ({ children }) => (
   <main>
     {children}
     <style jsx global>{`
@@ -44,3 +44,5 @@ export default ({ children }) => (
     `}</style>
   </main>
 );
+
+export default App;

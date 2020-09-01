@@ -5,6 +5,7 @@ import { initGA, logPageView } from "../lib/analytics";
 import React from "react";
 import "../css/font/inter.css";
 import "../css/main.css";
+import "../css/print.css"
 
 export default class MyApp extends App {
   componentDidMount() {
