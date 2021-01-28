@@ -1,11 +1,11 @@
-import { useQuery } from "@apollo/react-hooks";
-import { NetworkStatus } from "apollo-client";
-import gql from "graphql-tag";
-import ErrorMessage from "./ErrorMessage";
-import ReactMarkdown from "react-markdown";
-import { useRouter } from "next/router";
-import Head from "next/head";
-import PostList from "../components/PostList";
+import { useQuery } from '@apollo/react-hooks'
+import { NetworkStatus } from 'apollo-client'
+import gql from 'graphql-tag'
+import ErrorMessage from './ErrorMessage'
+import ReactMarkdown from 'react-markdown'
+import { useRouter } from 'next/router'
+import Head from 'next/head'
+import PostList from '../components/PostList'
 
 export const ALL_POSTS_QUERY = gql`
   query webs($id: String!) {
@@ -26,29 +26,29 @@ export const ALL_POSTS_QUERY = gql`
       updatedAt
     }
   }
-`;
+`
 
 export default function Post() {
-  const router = useRouter();
+  const router = useRouter()
 
   const allPostsQueryVars = {
-    id: router.query.id
-  };
+    id: router.query.id,
+  }
 
   const { loading, error, data, networkStatus } = useQuery(ALL_POSTS_QUERY, {
     variables: allPostsQueryVars,
     // Setting this value to true will make the component rerender when
     // the "networkStatus" changes, so we are able to know if it is fetching
     // more data
-    notifyOnNetworkStatusChange: true
-  });
+    notifyOnNetworkStatusChange: true,
+  })
 
-  const loadingMorePosts = networkStatus === NetworkStatus.fetchMore;
+  const loadingMorePosts = networkStatus === NetworkStatus.fetchMore
 
-  if (error) return <ErrorMessage message="Error loading posts." />;
-  if (loading && !loadingMorePosts) return <div>Loading</div>;
+  if (error) return <ErrorMessage message="Error loading posts." />
+  if (loading && !loadingMorePosts) return <div>Loading</div>
 
-  const { webs } = data;
+  const { webs } = data
 
   return (
     <section>
@@ -58,28 +58,27 @@ export default function Post() {
         <meta name="description" content={webs[0].Description} />
       </Head>
 
-      {webs.map(post => (
+      {webs.map((post) => (
         <div key={post.id}>
           <h1>{post.Title}</h1>
           {post.Image !== null ? (
             <span
-              id="image"
               className="imgHero"
               style={{
-                backgroundImage: `url(https://strapi.hulea.org/${post.Image.url})`
+                backgroundImage: `url(https://strapi.hulea.org/${post.Image.url})`,
               }}
             />
           ) : (
-            ""
+            ''
           )}
           <ReactMarkdown source={post.Description} />
           <a className="dash-link" target="_blank" href={post.Link}>
-            go to website >
+            go to website {`>`}
           </a>
         </div>
       ))}
 
-      <PostList title={webs[0].URL} extraClass="worklist" />
+      <PostList title={webs[0].Slug} extraClass="worklist" />
 
       <style jsx>{`
         * {
@@ -134,5 +133,5 @@ export default function Post() {
         }
       `}</style>
     </section>
-  );
+  )
 }
