@@ -1,8 +1,8 @@
-import App from '../components/App';
-import Header from '../components/Header';
-import Form from '../components/Form';
-import Footer from '../components/Footer';
-import Head from 'next/head';
+import App from '../components/App'
+import Header from '../components/Header'
+import Form from '../components/Form'
+import Footer from '../components/Footer'
+import Head from 'next/head'
 
 export default () => (
   <App>
@@ -13,4 +13,4 @@ export default () => (
     <Form />
     <Footer />
   </App>
-);
+)

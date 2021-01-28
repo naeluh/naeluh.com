@@ -1,22 +1,21 @@
 //===========//
 // Footer.js //
 //===========//
-import Link from "next/link";
-import React from "react";
+import Link from 'next/link'
 
 const Footer = () => (
   <footer>
     <div>
       <p
         style={{
-          fontWeight: "900",
-          marginBottom: "1rem"
+          fontWeight: '900',
+          marginBottom: '1rem',
         }}
       >
         <em>Nick Hulea</em>
       </p>
       <p>
-        Contact:{" "}
+        Contact:{' '}
         <a
           prefetch="true"
           target="_blank"
@@ -29,7 +28,7 @@ const Footer = () => (
         </a>
       </p>
       <p>
-        Github:{" "}
+        Github:{' '}
         <a
           prefetch="true"
           target="_blank"
@@ -42,7 +41,7 @@ const Footer = () => (
         </a>
       </p>
       <p>
-        Gitlab:{" "}
+        Gitlab:{' '}
         <a
           prefetch="true"
           target="_blank"
@@ -67,7 +66,7 @@ const Footer = () => (
         </a>
       </p>
       <p>
-        {" "}
+        {' '}
         <Link href="/about">
           <a title="About" alt="About" prefetch="true">
             About
@@ -75,7 +74,7 @@ const Footer = () => (
         </Link>
       </p>
       <p>
-        {" "}
+        {' '}
         <Link href="/contact">
           <a title="Contact" alt="Contact" prefetch="true">
             Contact
@@ -94,6 +93,6 @@ const Footer = () => (
     `}</style>
     <div />
   </footer>
-);
+)
 
-export default Footer;
+export default Footer
