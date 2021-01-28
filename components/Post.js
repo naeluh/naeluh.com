@@ -10,20 +10,19 @@ import PostList from '../components/PostList'
 export const ALL_POSTS_QUERY = gql`
   query webs($id: String!) {
     webs(where: { URL: $id }, limit: 1) {
-      Title
       _id
+      Title
+      Description
+      Slug
+      Link
+      createdAt
+      updatedAt
       Image {
         url
         ext
         provider
         size
       }
-      Description
-      Data
-      URL
-      Link
-      createdAt
-      updatedAt
     }
   }
 `

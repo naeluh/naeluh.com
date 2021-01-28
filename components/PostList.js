@@ -9,17 +9,17 @@ export const ALL_POSTS_QUERY = gql`
     webs {
       _id
       Title
+      Description
+      Slug
+      createdAt
+      updatedAt
+      Link
       Image {
         url
         ext
         provider
         size
       }
-      Description
-      Data
-      URL
-      createdAt
-      updatedAt
     }
   }
 `
