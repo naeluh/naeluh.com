@@ -9,7 +9,7 @@ import PostList from '../components/PostList'
 
 export const ALL_POSTS_QUERY = gql`
   query webs($id: String!) {
-    webs(where: { URL: $id }, limit: 1) {
+    webs(where: { Slug: $id }, limit: 1) {
       _id
       Title
       Description
