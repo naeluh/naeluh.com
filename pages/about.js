@@ -1,19 +1,24 @@
-import App from "../components/App";
-import Header from "../components/Header";
-import Page from "../components/BasicPage";
-import { withApollo } from "../lib/apollo";
-import Footer from "../components/Footer";
+import App from '../components/App';
+import Header from '../components/Header';
+import Page from '../components/Page';
+import Footer from '../components/Footer';
+import { getPage } from '../lib/api';
 
-class About extends React.Component {
-  render() {
-    return (
-      <App>
-        <Header />
-        <Page />
-        <Footer />
-      </App>
-    );
-  }
+const About = ({ page }) => {
+  return (
+    <App>
+      <Header />
+      <Page data={page} />
+      <Footer />
+    </App>
+  );
+};
+
+export default About;
+
+export async function getStaticProps({ preview = false }) {
+  const page = await getPage('about');
+  return {
+    props: { preview, page },
+  };
 }
-
-export default withApollo(About);

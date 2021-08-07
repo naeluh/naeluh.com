@@ -1,4 +1,4 @@
-const fetch = require('isomorphic-unfetch')
+/* const fetch = require('isomorphic-unfetch')
 
 module.exports = {
   async exportPathMap() {
@@ -26,4 +26,4 @@ module.exports = {
       '/work': { page: '/work' },
     })
   },
-}
+} */

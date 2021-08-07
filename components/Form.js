@@ -1,46 +1,50 @@
-import fetch from 'isomorphic-unfetch'
+import React, { useState } from 'react';
 
-export function FormLabel({ htmlFor, title }) {
-  return <label htmlFor={htmlFor}>{title}</label>
-}
+import fetch from 'isomorphic-unfetch';
 
-export default function Form() {
-  const [state, setState] = React.useState({
+const FormLabel = ({ htmlFor, title }) => (
+  <label htmlFor={htmlFor}>{title}</label>
+);
+
+const Form = () => {
+  const [state, setState] = useState({
     first_name: '',
     last_name: '',
     email: '',
     message: '',
     isActive: true,
     fetchMessage: '',
-  })
+  });
+
   const encode = (data) => {
     return Object.keys(data)
       .map(
         (key) => encodeURIComponent(key) + '=' + encodeURIComponent(data[key])
       )
-      .join('&')
-  }
+      .join('&');
+  };
 
   const handleChange = (e) => {
-    setState({ ...state, [e.target.name]: e.target.value })
-  }
+    setState({ ...state, [e.target.name]: e.target.value });
+  };
 
   const toggleMessage = (message) => {
     setState((prevState) => ({
       isActive: !prevState.isActive,
       fetchMessage: message,
-    }))
+    }));
     setTimeout(() => {
       setState((prevState) => ({
         isActive: !prevState.isActive,
-      }))
-    }, 2000)
-  }
+      }));
+    }, 2000);
+  };
 
   const handleSubmit = (e) => {
-    e.preventDefault()
+    e.preventDefault();
 
-    const form = e.target
+    const form = e.target;
+
     fetch('/', {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
@@ -49,17 +53,10 @@ export default function Form() {
         ...state,
       }),
     })
-      .then(function (response) {
-        toggleMessage('Thanks!')
-        // console.log(response);
-      })
-      .then(function (json) {
-        // console.log(json);
-      })
-      .catch(function (err) {
+      .then(() => toggleMessage('Thanks!'))
+      .catch(() =>
         toggleMessage('There was some problem with sending your message.')
-        // console.log(err);
-      })
+      );
 
     setState({
       first_name: '',
@@ -67,8 +64,8 @@ export default function Form() {
       email: '',
       message: '',
       isActive: true,
-    })
-  }
+    });
+  };
 
   return (
     <section>
@@ -156,5 +153,7 @@ export default function Form() {
         `}</style>
       </form>
     </section>
-  )
-}
+  );
+};
+
+export default Form;

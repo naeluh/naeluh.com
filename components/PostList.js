@@ -1,53 +1,11 @@
 import { useQuery } from '@apollo/react-hooks'
 import { NetworkStatus } from 'apollo-client'
-import gql from 'graphql-tag'
+
 import ErrorMessage from './ErrorMessage'
 import Head from 'next/head'
 
-export const ALL_POSTS_QUERY = gql`
-  query {
-    webs {
-      _id
-      Title
-      Description
-      Slug
-      createdAt
-      updatedAt
-      Link
-      Image {
-        url
-        ext
-        provider
-        size
-      }
-    }
-  }
-`
-
-export const allPostsQueryVars = {
-  skip: 0,
-  first: 10,
-}
-
-export default function PostList({ title, extraClass }) {
-  const { loading, error, data, fetchMore, networkStatus } = useQuery(
-    ALL_POSTS_QUERY,
-    {
-      // variables: allPostsQueryVars,
-      // Setting this value to true will make the component rerender when
-      // the "networkStatus" changes, so we are able to know if it is fetching
-      // more data
-      notifyOnNetworkStatusChange: true,
-    }
-  )
-
-  const loadingMorePosts = networkStatus === NetworkStatus.fetchMore
-
-  if (error) return <ErrorMessage message="Error loading posts." />
-  if (loading && !loadingMorePosts) return <div>Loading</div>
-
-  const { webs } = data
-
+const PostList = ({ posts, extraClass, title }) => {
+  // console.log(posts)
   return (
     <section className={extraClass}>
       <Head>
@@ -59,7 +17,7 @@ export default function PostList({ title, extraClass }) {
       </Head>
       {title === undefined ? <h1>Work</h1> : ''}
       <ul>
-        {webs.map((post, index) =>
+        {posts.map((post, index) =>
           post.Slug !== title ? (
             <li key={index + 1}>
               <a props={post._id} href={`/work/${post.Slug}`}>
@@ -179,3 +137,5 @@ export default function PostList({ title, extraClass }) {
     </section>
   )
 }
+
+export default PostList
