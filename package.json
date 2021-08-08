@@ -26,6 +26,7 @@
     "netlify-plugin-image-optim": "^0.4.0",
     "netlify-plugin-lighthouse": "^0.1.2",
     "next": "latest",
+    "postcss": "^8.3.6",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-ga": "^3.3.0",
