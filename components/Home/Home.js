@@ -1,48 +1,48 @@
-import React, { useEffect, useState } from 'react'
-import Link from 'next/link'
-import useWindowSize from '../hooks/useWindowSize'
-import useDebounce from '../hooks/useDebounce'
-import Head from 'next/head'
+import React, { useEffect, useState } from 'react';
+import Link from 'next/link';
+import useWindowSize from '../../hooks/useWindowSize';
+import useDebounce from '../../hooks/useDebounce';
+import Head from 'next/head';
 
 export default function HomeNew() {
-  const [height, setHeight] = useState('')
-  const [width, setWidth] = useState('')
-  const [color, setColor] = useState('')
-  const [random, setRandom] = useState('')
-  const size = useWindowSize()
-  const debouncedSize = useDebounce(size, 100)
+  const [height, setHeight] = useState('');
+  const [width, setWidth] = useState('');
+  const [color, setColor] = useState('');
+  const [random, setRandom] = useState('');
+  const size = useWindowSize();
+  const debouncedSize = useDebounce(size, 100);
 
   const getRandomArbitrary = (min, max) => {
-    return Math.random() * (max - min) + min
-  }
+    return Math.random() * (max - min) + min;
+  };
 
   const randomColor = () => {
-    return '#' + Math.random().toString(16).slice(2, 8).toUpperCase()
-  }
+    return '#' + Math.random().toString(16).slice(2, 8).toUpperCase();
+  };
 
   const r = getRandomArbitrary(
     getRandomArbitrary(1.3432, 270.6546),
     getRandomArbitrary(1.3432, 70.6546)
-  )
+  );
 
   const updateBlock = () => {
-    document.body.style.overflowX = 'hidden'
-    setHeight(size.height)
-    setWidth(size.width)
-    setColor(randomColor())
-    setRandom(`rotate(${r}deg)`)
-  }
+    document.body.style.overflowX = 'hidden';
+    setHeight(size.height);
+    setWidth(size.width);
+    setColor(randomColor());
+    setRandom(`rotate(${r}deg)`);
+  };
 
   useEffect(() => {
-    window.addEventListener('resize', updateBlock)
-    window.addEventListener('orientationchange', updateBlock)
-  }, [])
+    window.addEventListener('resize', updateBlock);
+    window.addEventListener('orientationchange', updateBlock);
+  }, []);
 
   useEffect(() => {
     if (debouncedSize) {
-      updateBlock()
+      updateBlock();
     }
-  }, [debouncedSize])
+  }, [debouncedSize]);
 
   return (
     <section>
@@ -59,7 +59,9 @@ export default function HomeNew() {
       <p>
         Samples of my work can be found{' '}
         <Link href="/work">
-          <a prefetch="true">here</a>
+          <a prefetch="true">
+            <span>here</span>
+          </a>
         </Link>
         .
       </p>
@@ -121,5 +123,5 @@ export default function HomeNew() {
         }
       `}</style>
     </section>
-  )
+  );
 }

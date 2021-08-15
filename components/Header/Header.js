@@ -1,6 +1,6 @@
-import React, { useState } from 'react'
-import Link from 'next/link'
-import { useRouter } from 'next/router'
+import React, { useState } from 'react';
+import Link from 'next/link';
+import { useRouter } from 'next/router';
 
 const links = [
   {
@@ -19,40 +19,29 @@ const links = [
     href: '/about',
     name: 'about',
   },
-]
+];
 
 const Header = ({}) => {
-  const [isActive, setIsActive] = useState(true)
-  const router = useRouter()
-
-  const handleClick = (event, url) => {
-    event.preventDefault()
-    Router.push({
-      pathname: `/work/${url}`,
-      asPath: `/work/${url}`,
-    })
-  }
-
-  const toggleNav = () => setIsActive(!isActive)
-
+  const [isActive, setIsActive] = useState(true);
+  const router = useRouter();
+  const toggleNav = () => setIsActive(!isActive);
   return (
     <header>
       <div className={isActive ? 'hide-overlay' : ''}>
         <nav>
           <button
             onClick={toggleNav}
-            className=""
             aria-label={isActive ? 'closed' : 'open'}
-          />
+          ></button>
         </nav>
         <div className="overlay" aria-label={isActive ? 'closed' : 'open'}>
           <div className="overlay-content">
-            <button id="close" onClick={toggleNav}>
+            <button className="close" onClick={toggleNav}>
               <span>close</span>
             </button>
-            <ul id="weblist">
+            <ul>
               {links.map((link, index) => (
-                <li className="bk" key={index + 1}>
+                <li key={index + 1}>
                   <Link href={link.href}>
                     <a
                       prefetch="true"
@@ -72,7 +61,7 @@ const Header = ({}) => {
         </div>
       </div>
     </header>
-  )
-}
+  );
+};
 
-export default Header
+export default Header;

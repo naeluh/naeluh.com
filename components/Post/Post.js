@@ -1,12 +1,12 @@
-import gql from 'graphql-tag'
-import ErrorMessage from './ErrorMessage'
-import ReactMarkdown from 'react-markdown'
-import { useRouter } from 'next/router'
-import Head from 'next/head'
-import PostList from '../components/PostList'
+import gql from 'graphql-tag';
+import ErrorMessage from './ErrorMessage';
+import ReactMarkdown from 'react-markdown';
+import { useRouter } from 'next/router';
+import Head from 'next/head';
+import PostList from '../PostList/PostList';
 
 const Post = ({ post, posts }) => {
-  console.log(post[0].Image)
+  console.log(post[0].Image);
 
   return (
     <section>
@@ -89,7 +89,7 @@ const Post = ({ post, posts }) => {
         }
       `}</style>
     </section>
-  )
-}
+  );
+};
 
-export default Post
+export default Post;

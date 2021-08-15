@@ -1,8 +1,8 @@
-import { useQuery } from '@apollo/react-hooks'
-import { NetworkStatus } from 'apollo-client'
+import { useQuery } from '@apollo/react-hooks';
+import { NetworkStatus } from 'apollo-client';
 
-import ErrorMessage from './ErrorMessage'
-import Head from 'next/head'
+import ErrorMessage from '../ErrorMessage/ErrorMessage';
+import Head from 'next/head';
 
 const PostList = ({ posts, extraClass, title }) => {
   // console.log(posts)
@@ -135,7 +135,7 @@ const PostList = ({ posts, extraClass, title }) => {
         }
       `}</style>
     </section>
-  )
-}
+  );
+};
 
-export default PostList
+export default PostList;
