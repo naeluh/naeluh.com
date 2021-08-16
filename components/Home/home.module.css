@@ -1,0 +1,47 @@
+#block {
+  overflow-x: hidden;
+}
+
+#block {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+.clear {
+  clear: both;
+}
+
+.innerCenter {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  height: 100%;
+}
+
+.center {
+  height: 100vh;
+}
+
+.center h1 {
+  font-weight: 900;
+  font-size: 100px;
+  line-height: 1;
+  letter-spacing: -0.05em;
+}
+.center p {
+  font-weight: 600;
+  font-size: 45px;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+}
+
+@media only screen and (max-width: 480px) {
+  .center h1 {
+    font-size: 45px;
+  }
+  .center p {
+    font-size: 35px;
+  }
+}

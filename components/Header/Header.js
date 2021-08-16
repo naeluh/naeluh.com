@@ -1,6 +1,15 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+import {
+  overlay,
+  nav,
+  overlayContent,
+  hideOverlay,
+  closed,
+  close,
+  open,
+} from './header.module.css';
 
 const links = [
   {
@@ -23,35 +32,24 @@ const links = [
 
 const Header = ({}) => {
   const [isActive, setIsActive] = useState(true);
-  const router = useRouter();
   const toggleNav = () => setIsActive(!isActive);
   return (
     <header>
-      <div className={isActive ? 'hide-overlay' : ''}>
-        <nav>
-          <button
-            onClick={toggleNav}
-            aria-label={isActive ? 'closed' : 'open'}
-          ></button>
+      <div className={isActive ? hideOverlay : ''}>
+        <nav className={nav}>
+          <button onClick={toggleNav} aria-label={isActive ? closed : open} />
         </nav>
-        <div className="overlay" aria-label={isActive ? 'closed' : 'open'}>
-          <div className="overlay-content">
-            <button className="close" onClick={toggleNav}>
+        <div className={overlay} aria-label={isActive ? closed : open}>
+          <div className={overlayContent}>
+            <button className={close} onClick={toggleNav}>
               <span>close</span>
             </button>
             <ul>
-              {links.map((link, index) => (
-                <li key={index + 1}>
-                  <Link href={link.href}>
-                    <a
-                      prefetch="true"
-                      onClick={toggleNav}
-                      href={link.href}
-                      className={
-                        router.pathname === link.name ? 'is-active' : ''
-                      }
-                    >
-                      {link.name}
+              {links.map(({ name, href }) => (
+                <li key={name}>
+                  <Link href={href}>
+                    <a prefetch onClick={toggleNav} href={href}>
+                      {name}
                     </a>
                   </Link>
                 </li>

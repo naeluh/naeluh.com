@@ -1,12 +1,11 @@
 import Link from 'next/link';
-import {} from './footer.module.css';
+import { footer } from './footer.module.css';
 
 const Footer = () => (
-  <footer>
+  <footer class={footer}>
     <div>
       <p>Nick Hulea</p>
       <p>
-        Contact:{' '}
         <a
           prefetch="true"
           target="_blank"
@@ -15,11 +14,10 @@ const Footer = () => (
           alt="Contact"
           href="mailto:naeluh@gmail.com"
         >
-          naeluh@gmail.com
+          Contact
         </a>
       </p>
       <p>
-        Github:{' '}
         <a
           prefetch="true"
           target="_blank"
@@ -28,11 +26,10 @@ const Footer = () => (
           alt="Github"
           href="https://github.com/naeluh"
         >
-          https://github.com/naeluh
+          Github
         </a>
       </p>
       <p>
-        Gitlab:{' '}
         <a
           prefetch="true"
           target="_blank"
@@ -41,7 +38,7 @@ const Footer = () => (
           alt="Gitlab"
           href="https://gitlab.com/naeluh"
         >
-          https://gitlab.com/naeluh
+          Gitlab
         </a>
       </p>
       <p>
