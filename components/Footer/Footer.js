@@ -7,7 +7,6 @@ const Footer = () => (
       <p>Nick Hulea</p>
       <p>
         <a
-          prefetch="true"
           target="_blank"
           rel="noopener noreferrer"
           title="Contact"
@@ -19,7 +18,6 @@ const Footer = () => (
       </p>
       <p>
         <a
-          prefetch="true"
           target="_blank"
           rel="noopener noreferrer"
           title="Github"
@@ -31,7 +29,6 @@ const Footer = () => (
       </p>
       <p>
         <a
-          prefetch="true"
           target="_blank"
           rel="noopener noreferrer"
           title="Gitlab"
@@ -43,7 +40,6 @@ const Footer = () => (
       </p>
       <p>
         <a
-          prefetch="true"
           target="_blank"
           rel="noopener noreferrer"
           title="Dat"
@@ -56,7 +52,7 @@ const Footer = () => (
       <p>
         {' '}
         <Link href="/about">
-          <a title="About" alt="About" prefetch="true">
+          <a title="About" alt="About">
             About
           </a>
         </Link>
@@ -64,7 +60,7 @@ const Footer = () => (
       <p>
         {' '}
         <Link href="/contact">
-          <a title="Contact" alt="Contact" prefetch="true">
+          <a title="Contact" alt="Contact">
             Contact
           </a>
         </Link>

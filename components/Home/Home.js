@@ -65,7 +65,7 @@ const Home = () => {
         <p>
           Samples of my work can be found{' '}
           <Link href="/work">
-            <a prefetch="true">
+            <a>
               <span>here</span>
             </a>
           </Link>
@@ -75,7 +75,7 @@ const Home = () => {
         <p>
           If you would like to contact me or if you have any questions click{' '}
           <Link href="/contact">
-            <a prefetch="true">here</a>
+            <a>here</a>
           </Link>
           .
         </p>
