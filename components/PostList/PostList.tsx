@@ -1,7 +1,6 @@
 import React from 'react';
 import Head from 'next/head';
 import styles from './postList.module.css';
-import Image from 'next/image';
 import Link from 'next/link';
 
 interface PostObject {
@@ -36,12 +35,13 @@ const PostList: React.FC<{
                   <Link href={`/work/${post.Slug}`}>
                     <a className={styles.img} href={`/work/${post.Slug}`}>
                       {post.Image && (
-                        <Image
-                          src={`https://strapi.hulea.org/${post.Image.url}`}
+                        <img
+                          src={`/.netlify/functions/ipx/f_webp/https://strapi.hulea.org/${post.Image.url}`}
                           alt={post.Title}
-                          layout="fill"
-                          objectFit="cover"
-                          objectPosition="center"
+                          style={{
+                            objectFit: 'cover',
+                            objectPosition: 'center',
+                          }}
                         />
                       )}
                     </a>

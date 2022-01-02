@@ -3,10 +3,10 @@
   "version": "2.0.0",
   "scripts": {
     "dev": "next",
-    "build": "npx next build && npx next start",
+    "build": "next build",
     "start": "next start",
     "dev:netlify": "next",
-    "build:netlify": "npx next build && npx next start",
+    "build:netlify": "next build && next export",
     "start:netlify": "serve ./out"
   },
   "dependencies": {
@@ -33,6 +33,7 @@
     "react-ga": "^3.3.0",
     "react-markdown": "^6.0.3",
     "rehype-raw": "^5.1.0",
+    "sharp": "^0.29.3",
     "typescript": "^4.3.2"
   },
   "license": "ISC",

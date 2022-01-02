@@ -1,6 +1,5 @@
 import React from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
 
 interface PostObject {
   Slug?: string;
@@ -22,12 +21,13 @@ const Card: React.FC<{ post?: PostObject; title?: string }> = ({
           {post.Image && (
             <div>
               <div>
-                <Image
-                  src={`https://strapi.hulea.org/${post.Image.url}`}
+                <img
+                  src={`/.netlify/functions/ipx/f_webp/https://strapi.hulea.org/${post.Image.url}`}
                   alt={post.Title}
-                  layout="fill"
-                  objectFit="cover"
-                  objectPosition="center"
+                  style={{
+                    objectFit: 'cover',
+                    objectPosition: 'center',
+                  }}
                 />
               </div>
             </div>

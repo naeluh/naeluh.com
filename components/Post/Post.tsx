@@ -2,7 +2,6 @@ import ReactMarkdown from 'react-markdown';
 import Head from 'next/head';
 import PostList from '../PostList';
 import styles from './post.module.css';
-import Image from 'next/image';
 
 interface PostObject {
   Slug?: string;
@@ -30,12 +29,13 @@ const Post: React.FC<{
         {post[0].Image && (
           <div className={styles.imgOuterContainer}>
             <div className={styles.imgInnerContainer}>
-              <Image
-                src={`https://strapi.hulea.org/${post[0].Image.url}`}
+              <img
+                src={`/.netlify/functions/ipx/f_webp/https://strapi.hulea.org/${post[0].Image.url}`}
                 alt={post[0].Title}
-                layout="fill"
-                objectFit="cover"
-                objectPosition="center"
+                style={{
+                  objectFit: 'cover',
+                  objectPosition: 'center',
+                }}
               />
             </div>
           </div>

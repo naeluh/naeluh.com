@@ -1,0 +1,5 @@
+[build]
+publish = "out/"
+
+[functions]
+external_node_modules = ["fsevents"]

@@ -1,5 +1,5 @@
 # Inline `build.lifecycle` commands can be defined
-build:
+# build:
   # lifecycle:
   # onInit:
   # - export VALUE=lol
@@ -10,13 +10,13 @@ build:
   # onBuild: |
   # echo 'Hello Netlify Build!'
   # npm run build:netlify
-  publish: out
+  # publish: out
 
 # Attach our plugins
-plugins:
-  - package: ./plugins/netlify-plugin-design
+# plugins:
+#   - package: ./plugins/netlify-plugin-design
   #  config:
-  #    siteId: SITE_ID 
+  #    siteId: SITE_ID
   #    siteToken: SITE_TOKEN
   # - package: netlify-plugin-image-optim
   # - package: "@netlify/plugin-sitemap"
