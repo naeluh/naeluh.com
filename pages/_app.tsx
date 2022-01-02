@@ -9,9 +9,9 @@ import '../css/print.css';
 
 const MyApp = ({ Component, pageProps }) => {
   useEffect(() => {
-    if (!window.GA_INITIALIZED) {
+    if (!window['GA_INITIALIZED']) {
       initGA();
-      window.GA_INITIALIZED = true;
+      window['GA_INITIALIZED'] = true;
     }
     logPageView();
   }, []);

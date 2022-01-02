@@ -6,7 +6,10 @@ import Footer from '../components/Footer';
 // import { withApollo } from '../../lib/apollo'
 import { getPosts } from '../lib/api';
 
-const Work = ({ preview, posts }) => {
+const Work: React.FC<{ preview: boolean; posts: Array<object> }> = ({
+  preview,
+  posts,
+}) => {
   return (
     <App>
       <Header />

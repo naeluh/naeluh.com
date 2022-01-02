@@ -2,12 +2,24 @@ import React, { useState } from 'react';
 
 import fetch from 'isomorphic-unfetch';
 
-const FormLabel = ({ htmlFor, title }) => (
-  <label htmlFor={htmlFor}>{title}</label>
-);
+interface HandleNameChangeInterface {
+  target: HTMLInputElement | HTMLTextAreaElement;
+}
+
+const FormLabel: React.FC<{ htmlFor?: string; title?: string }> = ({
+  htmlFor,
+  title,
+}) => <label htmlFor={htmlFor}>{title}</label>;
 
 const Form = () => {
-  const [state, setState] = useState({
+  const [state, setState] = useState<{
+    first_name?: string;
+    last_name?: string;
+    email?: string;
+    message?: string;
+    isActive?: boolean;
+    fetchMessage?: string;
+  }>({
     first_name: '',
     last_name: '',
     email: '',
@@ -16,7 +28,7 @@ const Form = () => {
     fetchMessage: '',
   });
 
-  const encode = (data) => {
+  const encode = (data: any) => {
     return Object.keys(data)
       .map(
         (key) => encodeURIComponent(key) + '=' + encodeURIComponent(data[key])
@@ -24,14 +36,15 @@ const Form = () => {
       .join('&');
   };
 
-  const handleChange = (e) => {
-    setState({ ...state, [e.target.name]: e.target.value });
+  const handleChange = (event: HandleNameChangeInterface) => {
+    setState({ ...state, [event.target.name]: event.target.value });
   };
 
-  const toggleMessage = (message) => {
+  const toggleMessage = (message: string) => {
     setState((prevState) => ({
       isActive: !prevState.isActive,
       fetchMessage: message,
+      ...prevState,
     }));
     setTimeout(() => {
       setState((prevState) => ({
@@ -40,31 +53,33 @@ const Form = () => {
     }, 2000);
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
 
-    const form = e.target;
+    const form = event.target as HTMLFormElement;
 
-    fetch('/', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: encode({
-        'form-name': form.getAttribute('name'),
-        ...state,
-      }),
-    })
-      .then(() => toggleMessage('Thanks!'))
-      .catch(() =>
-        toggleMessage('There was some problem with sending your message.')
-      );
+    if (form) {
+      fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: encode({
+          'form-name': form.getAttribute('name'),
+          ...state,
+        }),
+      })
+        .then(() => toggleMessage('Thanks!'))
+        .catch(() =>
+          toggleMessage('There was some problem with sending your message.')
+        );
 
-    setState({
-      first_name: '',
-      last_name: '',
-      email: '',
-      message: '',
-      isActive: true,
-    });
+      setState({
+        first_name: '',
+        last_name: '',
+        email: '',
+        message: '',
+        isActive: true,
+      });
+    }
   };
 
   return (
@@ -84,6 +99,7 @@ const Form = () => {
           <FormLabel htmlFor="first_name" title="First Name:" />
 
           <input
+            title="first name"
             id="first_name"
             className="form-input"
             name="first_name"
@@ -97,6 +113,7 @@ const Form = () => {
           <FormLabel htmlFor="last_name" title="Last Name:" />
 
           <input
+            title="last name"
             id="last_name"
             className="form-input"
             name="last_name"
@@ -110,6 +127,7 @@ const Form = () => {
           <FormLabel htmlFor="email" title="Email:" />
 
           <input
+            title="email"
             id="email"
             className="form-input"
             name="email"
@@ -123,6 +141,7 @@ const Form = () => {
           <FormLabel htmlFor="message" title="Message:" />
 
           <textarea
+            title="message"
             id="message"
             className="form-textarea"
             name="message"
@@ -133,11 +152,6 @@ const Form = () => {
 
         <fieldset className="form-group">
           <button
-            style={{
-              width: '100%',
-              display: 'flex',
-              justifyContent: 'center',
-            }}
             id="formButton"
             className="button"
             placeholder="Send message"

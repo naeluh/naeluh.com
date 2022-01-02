@@ -1,10 +1,10 @@
-import { useQuery } from "@apollo/react-hooks";
-import { NetworkStatus } from "apollo-client";
-import gql from "graphql-tag";
-import ErrorMessage from "./ErrorMessage";
-import ReactMarkdown from "react-markdown/with-html";
-import { useRouter } from "next/router";
-import Head from "next/head";
+import { useQuery } from '@apollo/react-hooks';
+import { NetworkStatus } from 'apollo-client';
+import gql from 'graphql-tag';
+import ErrorMessage from '../ErrorMessage';
+import ReactMarkdown from 'react-markdown';
+import { useRouter } from 'next/router';
+import Head from 'next/head';
 
 export const ALL_POSTS_QUERY = gql`
   query basics($url: String!) {
@@ -29,7 +29,7 @@ export default function BasicPage() {
   const router = useRouter();
 
   const allPostsQueryVars = {
-    url: router.pathname.replace("/", "")
+    url: router.pathname.replace('/', ''),
   };
 
   const { loading, error, data, networkStatus } = useQuery(ALL_POSTS_QUERY, {
@@ -37,7 +37,7 @@ export default function BasicPage() {
     // Setting this value to true will make the component rerender when
     // the "networkStatus" changes, so we are able to know if it is fetching
     // more data
-    notifyOnNetworkStatusChange: true
+    notifyOnNetworkStatusChange: true,
   });
 
   const loadingMorePosts = networkStatus === NetworkStatus.fetchMore;
@@ -57,7 +57,7 @@ export default function BasicPage() {
       <div key={basics[0].id}>
         <h1>{basics[0].Title}</h1>
         <div className="basicPage">
-          <ReactMarkdown source={basics[0].Body} escapeHtml={false}/>
+          <ReactMarkdown children={basics[0].Body} />
         </div>
       </div>
       <style jsx>{`

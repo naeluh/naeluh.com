@@ -3,7 +3,9 @@ import ReactMarkdown from 'react-markdown';
 import rehypeRaw from 'rehype-raw';
 import Head from 'next/head';
 
-const Page = ({ data }) => {
+const Page: React.FC<{ data: { Title: string; Body: string; id: string } }> = ({
+  data,
+}) => {
   return (
     <section>
       <Head>

@@ -1,4 +1,6 @@
-const ErrorMessage = ({ message }) => (
+import React from 'react';
+
+const ErrorMessage: React.FC<{ message?: string }> = ({ message }) => (
   <aside>
     {message}
     <style jsx>{`
@@ -10,6 +12,6 @@ const ErrorMessage = ({ message }) => (
       }
     `}</style>
   </aside>
-)
+);
 
 export default ErrorMessage;

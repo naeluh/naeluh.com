@@ -1,13 +1,27 @@
 import React from 'react';
+import Link from 'next/link';
+import Image from 'next/image';
 
-const Card = ({ post }) => {
-  return (
+interface PostObject {
+  Slug?: string;
+  Title?: string;
+  Image?: { url?: string };
+  Description?: string;
+  id?: string;
+  Link?: string;
+}
+
+const Card: React.FC<{ post?: PostObject; title?: string }> = ({
+  post,
+  title,
+}) => {
+  return post ? (
     <>
       <Link href={`/work/${post.Slug}`}>
-        <a className={img} href={`/work/${post.Slug}`}>
+        <a href={`/work/${post.Slug}`}>
           {post.Image && (
-            <div className={imgOuterContainer}>
-              <div className={imgInnerContainer}>
+            <div>
+              <div>
                 <Image
                   src={`https://strapi.hulea.org/${post.Image.url}`}
                   alt={post.Title}
@@ -34,6 +48,8 @@ const Card = ({ post }) => {
         </Link>
       )}
     </>
+  ) : (
+    <></>
   );
 };
 

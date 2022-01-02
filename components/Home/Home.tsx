@@ -5,15 +5,23 @@ import useDebounce from '../../hooks/useDebounce';
 import Head from 'next/head';
 import { clear, block, center, innerCenter } from './home.module.css';
 
+interface Height {
+  name: string;
+}
+
+interface Width {
+  name: string;
+}
+
 const Home = () => {
-  const [height, setHeight] = useState('');
-  const [width, setWidth] = useState('');
-  const [color, setColor] = useState('');
+  const [height, setHeight] = useState<number | null>(null);
+  const [width, setWidth] = useState<number | null>(null);
+  const [color, setColor] = useState<string>('');
   const [random, setRandom] = useState('');
   const size = useWindowSize();
   const debouncedSize = useDebounce(size, 100);
 
-  const getRandomArbitrary = (min, max) => {
+  const getRandomArbitrary = (min: number, max: number) => {
     return Math.random() * (max - min) + min;
   };
 
@@ -50,8 +58,8 @@ const Home = () => {
   }, [debouncedSize]);
 
   return (
-    <section class={center}>
-      <div class={innerCenter}>
+    <section className={center}>
+      <div className={innerCenter}>
         <Head>
           <title>Nick Hulea</title>
           <meta name="title" content="Nick Hulea&#39;s Website!" />

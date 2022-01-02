@@ -1,15 +1,6 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
-import { useRouter } from 'next/router';
-import {
-  overlay,
-  nav,
-  overlayContent,
-  hideOverlay,
-  closed,
-  close,
-  open,
-} from './header.module.css';
+import { overlay, nav, overlayContent, hideOverlay } from './header.module.css';
 
 const links = [
   {
@@ -37,18 +28,21 @@ const Header = ({}) => {
     <header>
       <div className={isActive ? hideOverlay : ''}>
         <nav className={nav}>
-          <button onClick={toggleNav} aria-label={isActive ? closed : open} />
+          <button
+            onClick={toggleNav}
+            aria-label={isActive ? 'closed' : 'open'}
+          />
         </nav>
-        <div className={overlay} aria-label={isActive ? closed : open}>
+        <div className={overlay} aria-label={isActive ? 'closed' : 'open'}>
           <div className={overlayContent}>
-            <button className={close} onClick={toggleNav}>
+            <button onClick={toggleNav}>
               <span>close</span>
             </button>
             <ul>
               {links.map(({ name, href }) => (
                 <li key={name}>
                   <Link href={href}>
-                    <a prefetch onClick={toggleNav} href={href}>
+                    <a onClick={toggleNav} href={href}>
                       {name}
                     </a>
                   </Link>

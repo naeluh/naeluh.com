@@ -4,8 +4,20 @@ import PostList from '../PostList';
 import { imgOuterContainer, imgInnerContainer } from './post.module.css';
 import Image from 'next/image';
 
-const Post = ({ post, posts }) => {
-  return (
+interface PostObject {
+  Slug?: string;
+  Title?: string;
+  Image?: { url?: string };
+  Description?: string;
+  id?: string;
+  Link?: string;
+}
+
+const Post: React.FC<{
+  post?: PostObject[];
+  posts?: PostObject[];
+}> = ({ post, posts }) => {
+  return post ? (
     <section>
       <Head>
         <title>{post[0].Title}</title>
@@ -28,7 +40,9 @@ const Post = ({ post, posts }) => {
             </div>
           </div>
         )}
-        <ReactMarkdown children={post[0].Description} />
+        {post[0].Description && (
+          <ReactMarkdown children={post[0].Description} />
+        )}
         <a className="dash-link" target="_blank" href={post[0].Link}>
           go to website {`>`}
         </a>
@@ -36,6 +50,8 @@ const Post = ({ post, posts }) => {
 
       <PostList posts={posts} preview={true} title={post[0].Slug} />
     </section>
+  ) : (
+    <></>
   );
 };
 
