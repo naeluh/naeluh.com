@@ -1,7 +1,7 @@
 /* NAV */
 .nav {
   position: fixed;
-  right: 100px;
+  right: 2em;
   top: 0;
   z-index: 9999;
 }
@@ -70,13 +70,14 @@
 .overlayContent ul li a {
   text-align: center;
   padding: 20vh 2rem;
-  font-size: 100px;
+  font-size: clamp(1rem, 10vw, 2rem);
   text-transform: uppercase;
   text-decoration: none;
   display: block;
   font-weight: 700;
   margin-bottom: 0;
-  background-color: var(--black-1);
+  background-color: var(--black-opacity-0-75);
+  text-align: left;
 }
 
 .overlayContent ul li a::after {
@@ -86,6 +87,10 @@
 
 .overlayContent ul li:hover {
   opacity: 1;
+}
+
+.overlayContent ul li a:hover {
+  background-color: var(--black-opacity-1-00);
 }
 
 .overlay button {

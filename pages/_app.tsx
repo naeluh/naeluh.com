@@ -6,6 +6,7 @@ import { initGA, logPageView } from '../lib/analytics';
 import '../css/font/inter.css';
 import '../css/main.css';
 import '../css/print.css';
+import '../css/base.css';
 
 const MyApp: React.FC<{ Component: any; pageProps: any }> = ({
   Component,

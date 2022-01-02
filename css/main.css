@@ -1,5 +1,8 @@
 :root {
   --black-1: #222222;
+  --black-opacity-0-5: rgba(34, 34, 34, 0.5);
+  --black-opacity-0-75: rgba(34, 34, 34, 0.75);
+  --black-opacity-1-00: rgba(34, 34, 34, 1);
   --white: #ffffff;
 }
 
@@ -107,6 +110,8 @@ h3 {
   color: var(--nc-tx-1);
   padding-bottom: 2px;
   margin-bottom: 8px;
+  font-weight: 900;
+  letter-spacing: -2px;
 }
 
 h4,

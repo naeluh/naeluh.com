@@ -36,12 +36,9 @@ const PostList: React.FC<{
                     <a className={styles.img} href={`/work/${post.Slug}`}>
                       {post.Image && (
                         <img
-                          src={`/.netlify/functions/ipx/f_webp/https://strapi.hulea.org/${post.Image.url}`}
+                          src={`https://strapi.hulea.org/${post.Image.url}`}
                           alt={post.Title}
-                          style={{
-                            objectFit: 'cover',
-                            objectPosition: 'center',
-                          }}
+                          className={styles.imageContainer}
                         />
                       )}
                     </a>
@@ -49,7 +46,7 @@ const PostList: React.FC<{
                   {title === undefined ? (
                     <Link href={`/work/${post.Slug}`}>
                       <a href={`/work/${post.Slug}`}>
-                        <h2>{post.Title}</h2>
+                        <h4>{post.Title}</h4>
                       </a>
                     </Link>
                   ) : (

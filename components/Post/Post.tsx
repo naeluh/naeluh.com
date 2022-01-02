@@ -27,17 +27,12 @@ const Post: React.FC<{
       <div key={post[0].id}>
         <h1>{post[0].Title}</h1>
         {post[0].Image && (
-          <div className={styles.imgOuterContainer}>
-            <div className={styles.imgInnerContainer}>
-              <img
-                src={`/.netlify/functions/ipx/f_webp/https://strapi.hulea.org/${post[0].Image.url}`}
-                alt={post[0].Title}
-                style={{
-                  objectFit: 'cover',
-                  objectPosition: 'center',
-                }}
-              />
-            </div>
+          <div className={styles.imgInnerContainer}>
+            <img
+              className={styles.imgContainer}
+              src={`https://strapi.hulea.org/${post[0].Image.url}`}
+              alt={post[0].Title}
+            />
           </div>
         )}
         {post[0].Description && (
