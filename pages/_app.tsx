@@ -7,11 +7,14 @@ import '../css/font/inter.css';
 import '../css/main.css';
 import '../css/print.css';
 
-const MyApp = ({ Component, pageProps }) => {
+const MyApp: React.FC<{ Component: any; pageProps: any }> = ({
+  Component,
+  pageProps,
+}) => {
   useEffect(() => {
-    if (!window['GA_INITIALIZED']) {
+    if (!(window as any)['GA_INITIALIZED']) {
       initGA();
-      window['GA_INITIALIZED'] = true;
+      (window as any)['GA_INITIALIZED'] = true;
     }
     logPageView();
   }, []);
@@ -32,7 +35,14 @@ const MyApp = ({ Component, pageProps }) => {
 
 export default MyApp;
 
-export async function getStaticProps({ Component, router, ctx }) {
+type Props = {
+  Component: {
+    getInitialProps: (ctx: any) => {};
+  };
+  ctx: any;
+};
+
+export async function getStaticProps({ Component, ctx }: Props) {
   let pageProps = {};
 
   if (Component.getInitialProps) {

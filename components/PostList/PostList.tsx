@@ -1,6 +1,6 @@
 import React from 'react';
 import Head from 'next/head';
-import { postList, previewList, img } from './postList.module.css';
+import styles from './postList.module.css';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -18,9 +18,9 @@ const PostList: React.FC<{
   posts?: PostObject[];
   title?: string;
 }> = ({ posts, preview, title }) => {
-  const previewClass = preview ? previewList : '';
+  const previewClass = preview ? styles.previewList : '';
   return (
-    <section className={[previewClass, postList].join(' ')}>
+    <section className={[previewClass, styles.postList].join(' ')}>
       <Head>
         <title>Work</title>
         <meta name="title" content="Nick Hulea's Work and Projects" />
@@ -34,7 +34,7 @@ const PostList: React.FC<{
               post.Slug !== title && (
                 <li key={post.Slug}>
                   <Link href={`/work/${post.Slug}`}>
-                    <a className={img} href={`/work/${post.Slug}`}>
+                    <a className={styles.img} href={`/work/${post.Slug}`}>
                       {post.Image && (
                         <Image
                           src={`https://strapi.hulea.org/${post.Image.url}`}

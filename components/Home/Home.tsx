@@ -3,19 +3,11 @@ import Link from 'next/link';
 import useWindowSize from '../../hooks/useWindowSize';
 import useDebounce from '../../hooks/useDebounce';
 import Head from 'next/head';
-import { clear, block, center, innerCenter } from './home.module.css';
-
-interface Height {
-  name: string;
-}
-
-interface Width {
-  name: string;
-}
+import styles from './home.module.css';
 
 const Home = () => {
-  const [height, setHeight] = useState<number | null>(null);
-  const [width, setWidth] = useState<number | null>(null);
+  const [boxHeight, setHeight] = useState<number | null>(null);
+  const [boxWidth, setWidth] = useState<number | null>(null);
   const [color, setColor] = useState<string>('');
   const [random, setRandom] = useState('');
   const size = useWindowSize();
@@ -35,19 +27,22 @@ const Home = () => {
   );
 
   const updateBlock = () => {
-    document.body.style.overflowX = 'hidden';
-    setHeight(size.height);
-    setWidth(size.width);
-    setColor(randomColor());
-    setRandom(`rotate(${r}deg)`);
+    const { height, width } = size;
+    if (height && width) {
+      document.body.style.overflowX = 'hidden';
+      setHeight(height);
+      setWidth(width);
+      setColor(randomColor());
+      setRandom(`rotate(${r}deg)`);
+    }
   };
 
   useEffect(() => {
-    window.addEventListener('resize', updateBlock);
-    window.addEventListener('orientationchange', updateBlock);
+    window.addEventListener('resize', () => updateBlock());
+    window.addEventListener('orientationchange', () => updateBlock());
     return () => {
-      window.removeEventListener('resize', updateBlock);
-      window.removeEventListener('orientationchange', updateBlock);
+      window.removeEventListener('resize', () => updateBlock());
+      window.removeEventListener('orientationchange', () => updateBlock());
     };
   }, []);
 
@@ -58,8 +53,8 @@ const Home = () => {
   }, [debouncedSize]);
 
   return (
-    <section className={center}>
-      <div className={innerCenter}>
+    <section className={styles.center}>
+      <div className={styles.innerCenter}>
         <Head>
           <title>Nick Hulea</title>
           <meta name="title" content="Nick Hulea&#39;s Website!" />
@@ -90,16 +85,16 @@ const Home = () => {
       </div>
 
       <div
-        id={block}
+        id={styles.block}
         style={{
           transform: random,
           backgroundColor: color,
-          height: height,
-          width: width,
+          height: boxHeight ? boxHeight : 0,
+          width: boxWidth ? boxWidth : 0,
         }}
       />
 
-      <div className={clear} />
+      <div className={styles.clear} />
     </section>
   );
 };

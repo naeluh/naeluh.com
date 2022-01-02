@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
-import { overlay, nav, overlayContent, hideOverlay } from './header.module.css';
+import styles from './header.module.css';
 
 const links = [
   {
@@ -26,15 +26,18 @@ const Header = ({}) => {
   const toggleNav = () => setIsActive(!isActive);
   return (
     <header>
-      <div className={isActive ? hideOverlay : ''}>
-        <nav className={nav}>
+      <div className={isActive ? styles.hideOverlay : ''}>
+        <nav className={styles.nav}>
           <button
             onClick={toggleNav}
             aria-label={isActive ? 'closed' : 'open'}
           />
         </nav>
-        <div className={overlay} aria-label={isActive ? 'closed' : 'open'}>
-          <div className={overlayContent}>
+        <div
+          className={styles.overlay}
+          aria-label={isActive ? 'closed' : 'open'}
+        >
+          <div className={styles.overlayContent}>
             <button onClick={toggleNav}>
               <span>close</span>
             </button>

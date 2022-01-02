@@ -8,7 +8,7 @@ const Index = () => {
   return (
     <App>
       <Header />
-      <Home title="Home Page" />
+      <Home />
       <Footer />
     </App>
   );

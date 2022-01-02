@@ -1,5 +1,5 @@
 import React from 'react';
-import { GetStaticProps, GetStaticPaths } from 'next';
+import { GetStaticPaths } from 'next';
 import App from '../../components/App';
 import Header from '../../components/Header';
 import Post from '../../components/Post';
@@ -38,8 +38,15 @@ export const getStaticPaths: GetStaticPaths = async () => {
   };
 };
 
-export const getStaticProps: GetStaticProps = async (context) => {
+type Params = {
+  params: {
+    slug: string;
+  };
+};
+
+export const getStaticProps = async ({ params }: Params) => {
+  const { slug } = params;
   const posts = await getPosts();
-  const post = await getPost(context?.params?.slug);
+  const post = await getPost(slug);
   return { props: { post, posts } };
 };

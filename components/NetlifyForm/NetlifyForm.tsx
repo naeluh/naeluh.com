@@ -21,7 +21,7 @@ export default function NetlifyForm() {
     message: '',
   });
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     fetch('/', {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
@@ -30,7 +30,7 @@ export default function NetlifyForm() {
       .then(() => alert('Success!'))
       .catch((error) => alert(error));
 
-    e.preventDefault();
+    event.preventDefault();
   };
 
   const handleChange = (event: HandleNameChangeInterface) =>

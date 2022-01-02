@@ -1,7 +1,7 @@
 import ReactMarkdown from 'react-markdown';
 import Head from 'next/head';
 import PostList from '../PostList';
-import { imgOuterContainer, imgInnerContainer } from './post.module.css';
+import styles from './post.module.css';
 import Image from 'next/image';
 
 interface PostObject {
@@ -28,8 +28,8 @@ const Post: React.FC<{
       <div key={post[0].id}>
         <h1>{post[0].Title}</h1>
         {post[0].Image && (
-          <div className={imgOuterContainer}>
-            <div className={imgInnerContainer}>
+          <div className={styles.imgOuterContainer}>
+            <div className={styles.imgInnerContainer}>
               <Image
                 src={`https://strapi.hulea.org/${post[0].Image.url}`}
                 alt={post[0].Title}

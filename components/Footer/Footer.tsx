@@ -1,8 +1,8 @@
 import Link from 'next/link';
-import { footer } from './footer.module.css';
+import styles from './footer.module.css';
 
 const Footer = () => (
-  <footer className={footer}>
+  <footer className={styles.footer}>
     <div>
       <p>Nick Hulea</p>
       <p>

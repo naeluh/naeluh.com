@@ -4,7 +4,7 @@ import Page from '../components/Page';
 import Footer from '../components/Footer';
 import { getPage } from '../lib/api';
 
-const About = ({ page }) => {
+const About: React.FC<{ page?: any }> = ({ page }) => {
   return (
     <App>
       <Header />
