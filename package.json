@@ -3,10 +3,10 @@
   "version": "2.0.0",
   "scripts": {
     "dev": "next",
-    "build": "next build",
+    "build": "npx next build && npx next start",
     "start": "next start",
     "dev:netlify": "next",
-    "build:netlify": "next build && next export",
+    "build:netlify": "npx next build && npx next start",
     "start:netlify": "serve ./out"
   },
   "dependencies": {
@@ -20,6 +20,7 @@
     "express": "^4.17.1",
     "graphql": "^15.5.1",
     "graphql-tag": "2.12.5",
+    "ipx": "^0.9.1",
     "isomorphic-unfetch": "^3.1.0",
     "netlify": "^8.0.0",
     "netlify-plugin-design": "^1.0.3",
@@ -36,6 +37,7 @@
   },
   "license": "ISC",
   "devDependencies": {
+    "@netlify/ipx": "0.0.8",
     "@netlify/plugin-sitemap": "^0.8.1",
     "@types/react": "^17.0.38",
     "babel-plugin-graphql-tag": "^3.3.0",
