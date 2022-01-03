@@ -1,15 +1,33 @@
 :root {
-  --black-1: #222222;
-  --black-opacity-0-5: rgba(34, 34, 34, 0.5);
-  --black-opacity-0-75: rgba(34, 34, 34, 0.75);
-  --black-opacity-1-00: rgba(34, 34, 34, 1);
+  --nc-tx-2: #222222;
+  --tx-opacity-0-5: rgba(34, 34, 34, 0.5);
+  --tx-opacity-0-75: rgba(34, 34, 34, 0.75);
+  --tx-opacity-1-00: rgba(34, 34, 34, 1);
   --white: #ffffff;
 }
 
 :root {
+  --fontSize: 22px;
+  /*--emsAcrossViewport: 80;
+  --fontSize: calc(100vw / var(--emsAcrossViewport));*/
+
+  --lineHeight: calc(var(--fontSize) * 1.5);
+
+  --spacing: 2rem;
+  --spacingv: calc(var(--lineHeight) / 2);
+
+  --columnGap: 2rem;
+
   --nc-font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
     Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif,
     'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+  --nc-font-heading: 'Didot', 'Inter', -apple-system, BlinkMacSystemFont,
+    'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue',
+    sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+  --nc-font-serif: 'Noto Serif Display', 'Inter', -apple-system,
+    BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell,
+    'Open Sans', 'Helvetica Neue', sans-serif, 'Apple Color Emoji',
+    'Segoe UI Emoji', 'Segoe UI Symbol';
   --nc-font-mono: Consolas, monaco, 'Ubuntu Mono', 'Liberation Mono',
     'Courier New', Courier, monospace;
 
@@ -24,6 +42,27 @@
   --nc-lk-tx: #ffffff;
   --nc-ac-1: #79ffe1;
   --nc-ac-tx: #0c4047;
+}
+
+.dark {
+  --nc-tx-1: #e5e7eb;
+  --nc-tx-2: #f6f8fa;
+  --nc-bg-1: #222;
+  --nc-bg-2: #1a1a1a;
+  --nc-bg-3: #222222;
+  --nc-lk-1: #e5e7eb;
+  --nc-lk-2: #ffffff;
+  --nc-lk-tx: #ffffff;
+  --nc-ac-1: #79ffe1;
+  --nc-ac-tx: #0c4047;
+  /* --tx-opacity-0-5: rgba(238, 238, 238, 0.5);
+  --tx-opacity-0-75: rgba(238, 238, 238, 0.75);
+  --tx-opacity-1-00: rgba(238, 238, 238, 1); */
+  --white: #e5e7eb;
+}
+
+body {
+  background-color: var(--nc-bg-1);
 }
 
 * {
@@ -83,8 +122,45 @@ main {
 
   /* Main body text */
   color: var(--nc-tx-2);
-  font-size: 1.03rem;
+  font-size: var(--fontSize);
   line-height: 1.5;
+}
+
+body {
+  color: var(--nc-tx-2);
+
+  font-size: var(--fontSize);
+  line-height: var(--lineHeight);
+
+  letter-spacing: -0.004em;
+
+  font-weight: 400;
+
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+
+  font-kerning: normal;
+  -webkit-font-kerning: normal;
+  -ms-font-kerning: normal;
+  -moz-font-kerning: normal;
+  -o-font-kerning: normal;
+
+  font-variant-ligatures: contextual common-ligatures;
+  -webkit-font-variant-ligatures: contextual common-ligatures;
+  -ms-font-variant-ligatures: contextual common-ligatures;
+  -moz-font-variant-ligatures: contextual common-ligatures;
+  -o-font-variant-ligatures: contextual common-ligatures;
+
+  /* required to work around letter-spacing bug in Chrome: */
+  font-feature-settings: 'kern' 1, 'liga' 1, 'calt' 1;
+}
+
+p,
+pre {
+  margin-bottom: var(--lineHeight);
 }
 
 ::selection {
@@ -93,7 +169,7 @@ main {
   color: var(--nc-ac-tx);
 }
 
-h1,
+/* h1,
 h2,
 h3,
 h4,
@@ -111,7 +187,7 @@ h3 {
   padding-bottom: 2px;
   margin-bottom: 8px;
   font-weight: 900;
-  letter-spacing: -2px;
+  font-family: var(--nc-font-heading);
 }
 
 h4,
@@ -142,16 +218,114 @@ h5 {
 
 h6 {
   font-size: 0.875rem;
+} */
+
+h1,
+.h1 {
+  margin-left: calc(3rem / -20);
+  font-weight: 700;
+  font-size: calc(var(--fontSize) * 3);
+  letter-spacing: -0.07em;
+  line-height: calc(var(--spacingv) * 6);
+}
+
+h1 {
+  margin-bottom: calc(var(--spacingv) * 2);
+}
+
+h2,
+.h2 {
+  font-weight: 700;
+  font-size: calc(var(--fontSize) * 2.5);
+  letter-spacing: -0.03em;
+  line-height: calc(var(--spacingv) * 3);
+}
+
+h2 {
+  margin-bottom: calc(var(--spacingv) * 2);
+}
+
+h3,
+.h3 {
+  font-weight: 700;
+  font-weight: 650;
+  font-size: calc(var(--fontSize) * 2.25);
+  letter-spacing: -0.018em;
+  line-height: calc(var(--spacingv) * 2);
+}
+
+h3 {
+  margin-bottom: calc(var(--spacingv) * 2);
+}
+
+h4,
+.h4 {
+  font-weight: 650;
+  font-size: calc(var(--fontSize) * 1.5);
+  letter-spacing: -0.018em;
+  line-height: calc(var(--spacingv) * 2);
+}
+
+h4 {
+  margin-bottom: calc(var(--spacingv) * 1);
+}
+
+h1 > a,
+h2 > a,
+h3 > a,
+h4 > a,
+.h1 > a,
+.h2 > a,
+.h3 > a,
+.h4 > a {
+  display: block;
+  color: inherit;
+  text-decoration: none !important;
+  text-shadow: none;
+  background: none;
+  outline: none;
+}
+
+h4,
+h5,
+h6,
+.h4,
+.h5,
+.h6 {
+  font-weight: 640;
+  letter-spacing: -0.015em;
+}
+
+h4,
+h5,
+h6 {
+  margin-bottom: calc(var(--spacingv) * 1);
+}
+
+* + h1 {
+  margin-top: calc(var(--spacingv) * 6);
+}
+
+* + h2 {
+  margin-top: calc(var(--spacingv) * 4);
+}
+
+* + h3 {
+  margin-top: calc(var(--spacingv) * 3);
+}
+
+* + h4 {
+  margin-top: calc(var(--spacingv) * 2);
 }
 
 a {
-  color: #000;
+  color: var(--nc-lk-2);
   position: relative;
   z-index: 1;
 }
 
 a:hover {
-  color: var(--nc-lk-2);
+  color: var(--nc-lk-1);
 }
 
 abbr:hover {
@@ -172,9 +346,6 @@ abbr {
 blockquote *:last-child {
   padding-bottom: 0;
   margin-bottom: 0;
-}
-
-header {
 }
 
 header h1,
@@ -412,6 +583,10 @@ input {
 
 img {
   max-width: 100%;
+}
+
+.columnList {
+  columns: 3;
 }
 
 /* FOOTER */

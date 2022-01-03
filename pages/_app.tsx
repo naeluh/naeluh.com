@@ -2,16 +2,18 @@
 import React, { useEffect } from 'react';
 import Head from 'next/head';
 import { initGA, logPageView } from '../lib/analytics';
+import type { AppProps as NextAppProps } from 'next/app';
+import { DocumentContext } from 'next/document';
 
 import '../css/font/inter.css';
 import '../css/main.css';
 import '../css/print.css';
-import '../css/base.css';
 
-const MyApp: React.FC<{ Component: any; pageProps: any }> = ({
-  Component,
-  pageProps,
-}) => {
+type AppProps<P = any> = {
+  pageProps: P;
+} & Omit<NextAppProps<P>, 'pageProps'>;
+
+const MyApp = ({ Component, pageProps }: AppProps) => {
   useEffect(() => {
     if (!(window as any)['GA_INITIALIZED']) {
       initGA();
@@ -38,9 +40,9 @@ export default MyApp;
 
 type Props = {
   Component: {
-    getInitialProps: (ctx: any) => {};
+    getInitialProps: (ctx: DocumentContext) => {};
   };
-  ctx: any;
+  ctx: DocumentContext;
 };
 
 export async function getStaticProps({ Component, ctx }: Props) {

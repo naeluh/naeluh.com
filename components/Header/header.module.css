@@ -13,7 +13,7 @@
   position: relative;
   cursor: pointer;
   z-index: 9999;
-  background-color: var(--black-1);
+  background-color: var(--nc-tx-2);
   margin: 0;
   padding: 0;
 }
@@ -43,7 +43,7 @@
 .overlay li a {
   text-decoration: none;
   border: none;
-  background-color: var(--black-1);
+  background-color: var(--nc-tx-2);
 }
 
 .overlayContent {
@@ -76,7 +76,7 @@
   display: block;
   font-weight: 700;
   margin-bottom: 0;
-  background-color: var(--black-opacity-0-75);
+  background-color: var(--tx-opacity-0-75);
   text-align: left;
 }
 
@@ -90,13 +90,13 @@
 }
 
 .overlayContent ul li a:hover {
-  background-color: var(--black-opacity-1-00);
+  background-color: var(--tx-opacity-1-00);
 }
 
 .overlay button {
   position: fixed;
   padding: 10px;
-  background-color: var(--black-1);
+  background-color: var(--nc-tx-2);
   top: 20px;
   left: 40px;
   z-index: 9999;
@@ -107,7 +107,7 @@
 
 .overlay button:hover,
 .overlay button:active {
-  background-color: var(--black-1);
+  background-color: var(--nc-tx-2);
   color: var(--white);
 }
 
