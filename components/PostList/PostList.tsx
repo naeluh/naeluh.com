@@ -2,6 +2,7 @@ import React from 'react';
 import Head from 'next/head';
 import styles from './postList.module.css';
 import Link from 'next/link';
+import Card from '../Card';
 
 interface PostObject {
   Slug?: string;
@@ -32,30 +33,7 @@ const PostList: React.FC<{
             (post: PostObject) =>
               post.Slug !== title && (
                 <li key={post.Slug}>
-                  <Link href={`/work/${post.Slug}`}>
-                    <a className={styles.img} href={`/work/${post.Slug}`}>
-                      {post.Image && (
-                        <img
-                          src={`https://strapi.hulea.org/${post.Image.url}`}
-                          alt={post.Title}
-                          className={styles.imageContainer}
-                        />
-                      )}
-                    </a>
-                  </Link>
-                  {title === undefined ? (
-                    <Link href={`/work/${post.Slug}`}>
-                      <a href={`/work/${post.Slug}`}>
-                        <h4>{post.Title}</h4>
-                      </a>
-                    </Link>
-                  ) : (
-                    <Link href={`/work/${post.Slug}`}>
-                      <a href={`/work/${post.Slug}`}>
-                        <p>{post.Title}</p>
-                      </a>
-                    </Link>
-                  )}
+                  <Card post={post} title={title} />
                 </li>
               )
           )}

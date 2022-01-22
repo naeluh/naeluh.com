@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+import styles from '../PostList/postList.module.css';
 
 interface PostObject {
   Slug?: string;
@@ -17,19 +18,14 @@ const Card: React.FC<{ post?: PostObject; title?: string }> = ({
   return post ? (
     <>
       <Link href={`/work/${post.Slug}`}>
-        <a href={`/work/${post.Slug}`}>
+        <a className={styles.img} href={`/work/${post.Slug}`}>
           {post.Image && (
             <div>
-              <div>
-                <img
-                  src={`/.netlify/functions/ipx/f_webp/https://strapi.hulea.org/${post.Image.url}`}
-                  alt={post.Title}
-                  style={{
-                    objectFit: 'cover',
-                    objectPosition: 'center',
-                  }}
-                />
-              </div>
+              <img
+                src={`https://strapi.hulea.org/${post.Image.url}`}
+                alt={post.Title}
+                className={styles.imageContainer}
+              />
             </div>
           )}
         </a>
@@ -37,13 +33,13 @@ const Card: React.FC<{ post?: PostObject; title?: string }> = ({
       {title === undefined ? (
         <Link href={`/work/${post.Slug}`}>
           <a href={`/work/${post.Slug}`}>
-            <h2>{post.Title}</h2>
+            <h4>{post.Title}</h4>
           </a>
         </Link>
       ) : (
         <Link href={`/work/${post.Slug}`}>
           <a href={`/work/${post.Slug}`}>
-            <p>{post.Title}</p>
+            <h4>{post.Title}</h4>
           </a>
         </Link>
       )}
