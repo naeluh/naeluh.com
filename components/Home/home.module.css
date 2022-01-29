@@ -15,8 +15,8 @@
 
 .innerCenter {
   display: flex;
-  justify-content: center;
   flex-direction: column;
+  justify-content: center;
   height: 100%;
 }
 
@@ -30,6 +30,7 @@
   line-height: 1;
   letter-spacing: -0.05em;
 }
+
 .center p {
   font-weight: 600;
   font-size: 45px;

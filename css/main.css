@@ -117,42 +117,42 @@ main {
   /* Center body in page */
   padding: 0 2rem;
   overflow-x: hidden;
-  word-break: break-word;
-  overflow-wrap: break-word;
 
   /* Main body text */
   color: var(--nc-tx-2);
   font-size: var(--fontSize);
   line-height: 1.5;
+  word-break: break-word;
+  overflow-wrap: break-word;
 }
 
 body {
   color: var(--nc-tx-2);
+
+  font-weight: 400;
 
   font-size: var(--fontSize);
   line-height: var(--lineHeight);
 
   letter-spacing: -0.004em;
 
-  font-weight: 400;
-
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
 
   -webkit-overflow-scrolling: touch;
   scroll-behavior: smooth;
-
-  font-kerning: normal;
   -webkit-font-kerning: normal;
   -ms-font-kerning: normal;
   -moz-font-kerning: normal;
   -o-font-kerning: normal;
 
-  font-variant-ligatures: contextual common-ligatures;
+  font-kerning: normal;
   -webkit-font-variant-ligatures: contextual common-ligatures;
   -ms-font-variant-ligatures: contextual common-ligatures;
   -moz-font-variant-ligatures: contextual common-ligatures;
   -o-font-variant-ligatures: contextual common-ligatures;
+
+  font-variant-ligatures: contextual common-ligatures;
 
   /* required to work around letter-spacing bug in Chrome: */
   font-feature-settings: 'kern' 1, 'liga' 1, 'calt' 1;
@@ -164,69 +164,18 @@ pre {
 }
 
 ::selection {
+  color: var(--nc-ac-tx);
   /* Set background color for selected text */
   background: var(--nc-ac-1);
-  color: var(--nc-ac-tx);
 }
-
-/* h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  line-height: 1;
-  color: var(--nc-tx-1);
-  padding-top: 0.875rem;
-}
-
-h1,
-h2,
-h3 {
-  color: var(--nc-tx-1);
-  padding-bottom: 2px;
-  margin-bottom: 8px;
-  font-weight: 900;
-  font-family: var(--nc-font-heading);
-}
-
-h4,
-h5,
-h6 {
-  margin-bottom: 0.3rem;
-}
-
-h1 {
-  font-size: 2.25rem;
-}
-
-h2 {
-  font-size: 1.85rem;
-}
-
-h3 {
-  font-size: 1.55rem;
-}
-
-h4 {
-  font-size: 1.25rem;
-}
-
-h5 {
-  font-size: 1rem;
-}
-
-h6 {
-  font-size: 0.875rem;
-} */
 
 h1,
 .h1 {
   margin-left: calc(3rem / -20);
   font-weight: 700;
   font-size: calc(var(--fontSize) * 3);
-  letter-spacing: -0.07em;
   line-height: calc(var(--spacingv) * 6);
+  letter-spacing: -0.07em;
 }
 
 h1 {
@@ -237,8 +186,8 @@ h2,
 .h2 {
   font-weight: 700;
   font-size: calc(var(--fontSize) * 2.5);
-  letter-spacing: -0.03em;
   line-height: calc(var(--spacingv) * 3);
+  letter-spacing: -0.03em;
 }
 
 h2 {
@@ -250,8 +199,8 @@ h3,
   font-weight: 700;
   font-weight: 650;
   font-size: calc(var(--fontSize) * 2.25);
+  line-height: calc(var(--spacingv) * 3);
   letter-spacing: -0.018em;
-  line-height: calc(var(--spacingv) * 2);
 }
 
 h3 {
@@ -262,8 +211,8 @@ h4,
 .h4 {
   font-weight: 650;
   font-size: calc(var(--fontSize) * 1.5);
+  line-height: calc(var(--spacingv) * 2.5);
   letter-spacing: -0.018em;
-  line-height: calc(var(--spacingv) * 2);
 }
 
 h4 {
@@ -319,9 +268,9 @@ h6 {
 }
 
 a {
-  color: var(--nc-lk-2);
   position: relative;
   z-index: 1;
+  color: var(--nc-lk-2);
 }
 
 a:hover {
@@ -344,8 +293,8 @@ abbr {
 }
 
 blockquote *:last-child {
-  padding-bottom: 0;
   margin-bottom: 0;
+  padding-bottom: 0;
 }
 
 header h1,
@@ -369,18 +318,18 @@ button,
 input[type='submit'],
 input[type='reset'],
 input[type='button'] {
-  font-size: 1rem;
   display: inline-block;
+  box-sizing: border-box;
   padding: 6px 12px;
+  color: var(--nc-lk-tx);
+  color: var(--nc-lk-tx);
+  font-size: 1rem;
+  white-space: nowrap;
   text-align: center;
   text-decoration: none;
-  white-space: nowrap;
   background: var(--nc-lk-1);
-  color: var(--nc-lk-tx);
   border: 0;
-  box-sizing: border-box;
   cursor: pointer;
-  color: var(--nc-lk-tx);
 }
 
 a button[disabled],
@@ -389,10 +338,10 @@ input[type='submit'][disabled],
 input[type='reset'][disabled],
 input[type='button'][disabled] {
   cursor: default;
-  opacity: 0.5;
 
   /* Set the [X] cursor while hovering a disabled link */
   cursor: not-allowed;
+  opacity: 0.5;
 }
 
 .button:focus,
@@ -420,12 +369,12 @@ code,
 samp,
 kbd,
 pre {
-  /* The main preformatted style. This is changed slightly across different cases. */
-  background: var(--nc-bg-2);
-  border: 1px solid var(--nc-bg-3);
   padding: 3px 6px;
   /* ↓ font-size is relative to containing element, so it scales for titles*/
   font-size: 0.9em;
+  /* The main preformatted style. This is changed slightly across different cases. */
+  background: var(--nc-bg-2);
+  border: 1px solid var(--nc-bg-3);
 }
 
 kbd {
@@ -434,30 +383,30 @@ kbd {
 }
 
 pre {
-  padding: 1rem 1.4rem;
   max-width: 100%;
+  padding: 1rem 1.4rem;
   overflow: auto;
 }
 
 pre code {
+  margin: 0;
+  padding: 0;
+  color: inherit;
+  font-size: inherit;
   /* When <code> is in a <pre>, reset it's formatting to blend in */
   background: inherit;
-  font-size: inherit;
-  color: inherit;
   border: 0;
-  padding: 0;
-  margin: 0;
 }
 
 code pre {
   /* When <pre> is in a <code>, reset it's formatting to blend in */
   display: inline;
-  background: inherit;
-  font-size: inherit;
-  color: inherit;
-  border: 0;
-  padding: 0;
   margin: 0;
+  padding: 0;
+  color: inherit;
+  font-size: inherit;
+  background: inherit;
+  border: 0;
 }
 
 details {
@@ -468,9 +417,9 @@ details {
 }
 
 summary {
+  font-weight: bold;
   /* Makes the <summary> look more like a "clickable" link with the pointer cursor */
   cursor: pointer;
-  font-weight: bold;
 }
 
 details[open] {
@@ -498,10 +447,10 @@ dd::before {
 }
 
 hr {
+  margin: 1rem auto;
   /* Reset the border of the <hr> separator, then set a better line */
   border: 0;
   border-bottom: 1px solid var(--nc-bg-3);
-  margin: 1rem auto;
 }
 
 fieldset {
@@ -515,16 +464,16 @@ legend {
 }
 
 table {
+  width: 100%;
   /* border-collapse sets the table's elements to share borders, rather than floating as separate "boxes". */
   border-collapse: collapse;
-  width: 100%;
 }
 
 td,
 th {
-  border: 1px solid var(--nc-bg-3);
-  text-align: left;
   padding: 0.5rem;
+  text-align: left;
+  border: 1px solid var(--nc-bg-3);
 }
 
 th {
@@ -537,8 +486,8 @@ tr:nth-child(even) {
 }
 
 table caption {
-  font-weight: bold;
   margin-bottom: 0.5rem;
+  font-weight: bold;
 }
 
 textarea {
@@ -565,20 +514,20 @@ ol ol {
 
 mark {
   padding: 3px 6px;
-  background: var(--nc-ac-1);
   color: var(--nc-ac-tx);
+  background: var(--nc-ac-1);
 }
 
 textarea,
 select,
 input {
-  padding: 6px 12px;
+  box-sizing: border-box;
   margin-bottom: 0.5rem;
-  background: var(--nc-bg-2);
+  padding: 6px 12px;
   color: var(--nc-tx-2);
+  background: var(--nc-bg-2);
   border: 1px solid var(--nc-bg-3);
   box-shadow: none;
-  box-sizing: border-box;
 }
 
 img {

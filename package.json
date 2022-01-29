@@ -43,6 +43,9 @@
     "@types/react": "^17.0.38",
     "babel-plugin-graphql-tag": "^3.3.0",
     "netlify-plugin-subfont": "^6.0.0",
+    "stylelint": "^14.3.0",
+    "stylelint-config-prettier": "^9.0.3",
+    "stylelint-config-rational-order": "^0.1.2",
     "typescript-plugin-css-modules": "^3.4.0"
   }
 }

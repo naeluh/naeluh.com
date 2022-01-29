@@ -38,41 +38,41 @@ const Header: React.FC<{}> = () => {
 
   return (
     <header>
-      <div className={!isActive ? styles.hideOverlay : ''}>
-        <nav role="navigation" className={styles.nav}>
+      <nav
+        role="navigation"
+        className={[styles.nav, !isActive ? styles.hideOverlay : ''].join(' ')}
+      >
+        <button
+          role="button"
+          onClick={toggleNav}
+          aria-label={!isActive ? 'navigation closed' : 'navigation open'}
+        />
+
+        <div
+          className={styles.overlay}
+          aria-label={!isActive ? 'navigation closed' : 'navigation open'}
+        >
           <button
             role="button"
+            aria-label="navigation close button"
             onClick={toggleNav}
-            aria-label={!isActive ? 'navigation closed' : 'navigation open'}
-          />
-
-          <div
-            className={styles.overlay}
-            aria-label={!isActive ? 'navigation closed' : 'navigation open'}
+            className={styles.close}
           >
-            <div className={styles.overlayContent}>
-              <button
-                role="button"
-                aria-label="navigation close button"
-                onClick={toggleNav}
-              >
-                <span>close</span>
-              </button>
-              <ul>
-                {links.map(({ name, href }) => (
-                  <li key={name}>
-                    <Link href={href}>
-                      <a onClick={toggleNav} href={href}>
-                        {name}
-                      </a>
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        </nav>
-      </div>
+            <span>close</span>
+          </button>
+          <ul>
+            {links.map(({ name, href }) => (
+              <li key={name}>
+                <Link href={href}>
+                  <a onClick={toggleNav} href={href}>
+                    {name}
+                  </a>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </nav>
     </header>
   );
 };

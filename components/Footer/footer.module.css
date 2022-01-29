@@ -1,4 +1,5 @@
 .footer {
+  margin-top: max(5vh, 2rem);
   margin-bottom: 4rem;
 }
 

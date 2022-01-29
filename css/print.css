@@ -1,55 +1,55 @@
 @media print {
-    /* All your print styles go here */
-    footer,
-    h1,
-    nav {
-        display: none !important;
-    }
+  /* All your print styles go here */
+  footer,
+  h1,
+  nav {
+    display: none !important;
+  }
 
-    h3 {
-        font-size: 18px !important;
-        margin-bottom: 10px !important;
-    }
+  h3 {
+    margin-bottom: 10px !important;
+    font-size: 18px !important;
+  }
 
-    h4 {
-        font-size: 14px !important;
-        line-height: 1.25 !important;
-        margin-top: 15px !important;
-        margin-bottom: 10px !important;
-    }
+  h4 {
+    margin-top: 15px !important;
+    margin-bottom: 10px !important;
+    font-size: 14px !important;
+    line-height: 1.25 !important;
+  }
 
-    li {
-        font-size: 12px !important;
-        line-height: 1.25 !important;
-        margin-bottom: 0.5em !important;
-    }
+  li {
+    margin-bottom: 0.5em !important;
+    font-size: 12px !important;
+    line-height: 1.25 !important;
+  }
 
-    @page: left {
-        @top-left {
-            content: counter(page);
-        }
+  @page: left {
+    @top-left {
+      content: counter(page);
     }
-    @page: right {
-        @top-right {
-            content: counter(page);
-        }
+  }
+  @page: right {
+    @top-right {
+      content: counter(page);
     }
+  }
 
-    @page: blank {
-        @top-left {
-            content: normal;
-        }
-        @top-right {
-            content: normal;
-        }
+  @page: blank {
+    @top-left {
+      content: normal;
     }
+    @top-right {
+      content: normal;
+    }
+  }
 
-    h1 {
-        break-before: right;
-    }
+  h1 {
+    break-before: right;
+  }
 
-    document {
-        display: block;
-        page-break-before: right;
-    }
+  document {
+    display: block;
+    page-break-before: right;
+  }
 }
