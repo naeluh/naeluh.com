@@ -1,7 +1,6 @@
 .react-form {
   width: 100%;
   max-width: max(5vw, 768px);
-  margin: auto;
 }
 
 .form-group {
