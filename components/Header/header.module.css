@@ -63,6 +63,7 @@
   z-index: 9999;
   width: 100%;
   max-height: 0;
+  opacity: 0;
   /* background-image: linear-gradient(
     var(--a),
     var(--c) var(--l),
@@ -73,7 +74,7 @@
   /* -webkit-mask-image: linear-gradient(to top, transparent, black var(--b));
   mask-image: linear-gradient(to top, transparent, black var(--b)); */
   /* transition: --b 1s, --a 2.5s 0.5s, --l 2.5s, --c 4s, linear max-height 1s; */
-  transition: linear max-height var(--time);
+  transition: linear max-height var(--time), linear opacity var(--time);
 }
 
 .overlay {
@@ -87,6 +88,7 @@
   z-index: 9999;
   width: 100%;
   max-height: 100vh;
+  opacity: 1;
   /* background-image: linear-gradient(
     var(--a),
     var(--c) var(--l),
@@ -97,7 +99,7 @@
   mask-image: linear-gradient(to top, transparent, black var(--b)); */
   /* transition: --b 1s, --a 5s 1s, --l 5s, --c 8s, linear max-height 1s; */
   /* transition: --b 1s, --a 2.5s 0.5s, --l 2.5s, --c 4s, linear max-height 1s; */
-  transition: linear max-height var(--time);
+  transition: linear max-height var(--time), linear opacity var(--time);
 }
 
 .overlay a {

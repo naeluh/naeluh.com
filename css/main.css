@@ -60,7 +60,7 @@
   --tx-opacity-1-00: rgba(238, 238, 238, 1); */
   --white: #e5e7eb;
 
-  --time: 0.25s;
+  --time: 0.125s;
 }
 
 body {
