@@ -190,18 +190,12 @@
 }
 
 .overlay button.close:hover {
-  color: var(--nc-tx-2);
-  background-color: var(--nc-bg-1);
+  color: var(--white);
+  background-color: var(--nc-ac-tx);
 }
 
 .overlay button:hover,
 .overlay button:active {
   color: var(--white);
   background-color: var(--nc-tx-2);
-}
-
-.overlay button span:hover,
-.overlay button span:active {
-  color: #fff;
-  background-color: #111;
 }
