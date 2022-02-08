@@ -81,7 +81,6 @@
   content: '';
 }
 
-/* Button 2 */
 .btn-click {
   color: #fff;
   box-shadow: 0 6px var(--nc-tx-2);
@@ -90,18 +89,14 @@
   transition: none;
 }
 
-* Button 2a */ .btn-clicka {
-  border-radius: 0 0 5px 5px;
-}
-
-.btn-clicka:hover {
+.btn-click:hover {
   top: 2px;
   color: var(--nc-bg-2);
   background-color: var(--nc-tx-2);
   box-shadow: 0 4px var(--nc-bg-3);
 }
 
-.btn-clicka:active {
+.btn-click:active {
   top: 6px;
   color: var(--nc-bg-2);
   background-color: var(--nc-tx-2);
