@@ -153,7 +153,7 @@ const Form = () => {
         <fieldset className="form-group">
           <button
             id="formButton"
-            className="button"
+            className="button btn btn btn-click btn-clicka"
             placeholder="Send message"
             type="submit"
           >

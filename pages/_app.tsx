@@ -8,6 +8,7 @@ import { DocumentContext } from 'next/document';
 import '../css/font/inter.css';
 import '../css/main.css';
 import '../css/print.css';
+import '../css/form.css';
 
 type AppProps<P = any> = {
   pageProps: P;

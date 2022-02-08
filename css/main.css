@@ -59,6 +59,8 @@
   --tx-opacity-0-75: rgba(238, 238, 238, 0.75);
   --tx-opacity-1-00: rgba(238, 238, 238, 1); */
   --white: #e5e7eb;
+
+  --time: 0.25s;
 }
 
 body {
@@ -455,7 +457,7 @@ hr {
 
 fieldset {
   margin-top: 1rem;
-  padding: 2rem;
+  padding: 2rem 0;
   border: 1px solid var(--nc-bg-3);
 }
 

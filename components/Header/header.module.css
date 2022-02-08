@@ -4,11 +4,13 @@
   inherits: false;
   initial-value: 90deg;
 }
+
 @property --l {
   syntax: '<percentage>';
   inherits: false;
   initial-value: 10%;
 }
+
 @property --c {
   syntax: '<color>';
   inherits: false;
@@ -18,7 +20,7 @@
 @property --b {
   syntax: '<percentage>';
   inherits: false;
-  initial-value: 99.9%;
+  initial-value: 0%;
 }
 
 .nav {
@@ -54,47 +56,48 @@
   --a: 80deg;
   --l: 10%;
   --c: red;
-
-  --b: 750%;
+  --b: 0%;
   position: fixed;
   top: 0;
   left: 0;
   z-index: 9999;
   width: 100%;
-  max-height: 0%;
-  background: linear-gradient(
+  max-height: 0;
+  /* background-image: linear-gradient(
     var(--a),
     var(--c) var(--l),
     blue,
     var(--c) calc(100% - var(--l))
-  );
+  ); */
 
-  -webkit-mask-image: linear-gradient(to top, transparent, black var(--b));
-  mask-image: linear-gradient(to top, transparent, black var(--b));
-  transition: --b 1s, --a 2.5s 0.5s, --l 2.5s, --c 4s, linear max-height 1s;
+  /* -webkit-mask-image: linear-gradient(to top, transparent, black var(--b));
+  mask-image: linear-gradient(to top, transparent, black var(--b)); */
+  /* transition: --b 1s, --a 2.5s 0.5s, --l 2.5s, --c 4s, linear max-height 1s; */
+  transition: linear max-height var(--time);
 }
 
 .overlay {
   --a: 360deg;
   --l: 40%;
   --c: green;
-  --b: 15%;
+  --b: 100%;
   position: fixed;
   top: 0;
   left: 0;
   z-index: 9999;
   width: 100%;
-  max-height: 100%;
-  background: linear-gradient(
+  max-height: 100vh;
+  /* background-image: linear-gradient(
     var(--a),
     var(--c) var(--l),
     blue,
     var(--c) calc(100% - var(--l))
-  );
-  -webkit-mask-image: linear-gradient(to top, transparent, black var(--b));
-  mask-image: linear-gradient(to top, transparent, black var(--b));
+  ); */
+  /* -webkit-mask-image: linear-gradient(to top, transparent, black var(--b));
+  mask-image: linear-gradient(to top, transparent, black var(--b)); */
   /* transition: --b 1s, --a 5s 1s, --l 5s, --c 8s, linear max-height 1s; */
-  transition: --b 1s, --a 2.5s 0.5s, --l 2.5s, --c 4s, linear max-height 1s;
+  /* transition: --b 1s, --a 2.5s 0.5s, --l 2.5s, --c 4s, linear max-height 1s; */
+  transition: linear max-height var(--time);
 }
 
 .overlay a {

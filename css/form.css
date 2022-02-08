@@ -1,0 +1,109 @@
+.react-form {
+  width: 100%;
+  max-width: max(5vw, 768px);
+  margin: auto;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: min(3vw, 1rem);
+  align-items: flex-start;
+  justify-content: center;
+  width: 100%;
+  max-width: max(5vw, 768px);
+  padding: 0;
+}
+
+.form-group label {
+  font-weight: 600;
+  font-size: calc(var(--fontSize) * 1.125);
+  line-height: calc(var(--spacingv) * 1.125);
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: min(3vw, 1rem);
+  color: var(--nc-bg-2);
+  font-weight: 600;
+  font-size: calc(var(--fontSize) * 1);
+  line-height: calc(var(--spacingv) * 1);
+  letter-spacing: -0.07em;
+  background-color: var(--nc-tx-2);
+  border-radius: min(3vw, 0.25rem);
+}
+
+.form-group textarea {
+  min-height: 200px;
+}
+
+.form-group button {
+  display: inline-block;
+  padding: 15px 32px;
+  color: var(--nc-tx-2);
+  font-weight: 600;
+  font-size: 16px;
+  font-size: calc(var(--fontSize) * 1);
+  line-height: calc(var(--spacingv) * 1);
+  text-align: center;
+  text-decoration: none;
+  background-color: var(--nc-bg-2);
+  border: none;
+}
+
+.btn {
+  position: relative;
+  display: inline-block;
+  margin: min(3vw, 1rem) 0;
+  padding: min(3vw, 1rem);
+  color: inherit;
+  font-weight: 700;
+  font-size: inherit;
+  font-family: inherit;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  background: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+.btn:after {
+  position: absolute;
+  z-index: -1;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  transition: all 0.3s;
+  content: '';
+}
+
+/* Button 2 */
+.btn-click {
+  color: #fff;
+  box-shadow: 0 6px var(--nc-tx-2);
+  -webkit-transition: none;
+  -moz-transition: none;
+  transition: none;
+}
+
+* Button 2a */ .btn-clicka {
+  border-radius: 0 0 5px 5px;
+}
+
+.btn-clicka:hover {
+  top: 2px;
+  color: var(--nc-bg-2);
+  background-color: var(--nc-tx-2);
+  box-shadow: 0 4px var(--nc-bg-3);
+}
+
+.btn-clicka:active {
+  top: 6px;
+  color: var(--nc-bg-2);
+  background-color: var(--nc-tx-2);
+  box-shadow: 0 0 var(--nc-bg-3);
+}

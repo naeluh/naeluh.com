@@ -1,18 +1,25 @@
 .imgInnerContainer {
   position: relative;
   width: 100%;
+
   height: 0;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
   padding-bottom: 50%;
   overflow: hidden;
-  margin-bottom: 1rem;
-  margin-top: 1rem;
 }
 
 .imgContainer {
-  object-fit: cover;
-  object-position: center center;
   position: absolute;
   width: 100%;
   height: 100%;
+  object-fit: cover;
+  object-position: center center;
   inset: 0;
+}
+
+.innerContentContainer {
+  width: 100%;
+  max-width: max(5vw, 768px);
+  margin: 0 auto;
 }

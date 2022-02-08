@@ -35,12 +35,14 @@ const Post: React.FC<{
             />
           </div>
         )}
-        {post[0].Description && (
-          <ReactMarkdown children={post[0].Description} />
-        )}
-        <a className="dash-link" target="_blank" href={post[0].Link}>
-          go to website {`>`}
-        </a>
+        <div className={styles.innerContentContainer}>
+          {post[0].Description && (
+            <ReactMarkdown children={post[0].Description} />
+          )}
+          <a className="dash-link" target="_blank" href={post[0].Link}>
+            go to website {`>`}
+          </a>{' '}
+        </div>
       </div>
 
       <PostList posts={posts} preview={true} title={post[0].Slug} />
