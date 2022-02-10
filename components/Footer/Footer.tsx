@@ -4,17 +4,6 @@ import styles from './footer.module.css';
 const Footer = () => (
   <footer className={styles.footer}>
     <div>
-      <p>Nick Hulea</p>
-      <p>
-        <a
-          target="_blank"
-          rel="noopener noreferrer"
-          title="Contact"
-          href="mailto:naeluh@gmail.com"
-        >
-          Contact
-        </a>
-      </p>
       <p>
         <a
           target="_blank"
