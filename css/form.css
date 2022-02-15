@@ -81,7 +81,7 @@
 }
 
 .btn-click {
-  color: #fff;
+  color: var(--nc-lk-tx);
   box-shadow: 0 6px var(--nc-tx-2);
   -webkit-transition: none;
   -moz-transition: none;

@@ -7,13 +7,13 @@
 }
 
 :root {
-  --fontSize: 22px;
+  --fontSize: clamp(1.25rem, 5vw, 1.25rem);
   /*--emsAcrossViewport: 80;
   --fontSize: calc(100vw / var(--emsAcrossViewport));*/
 
   --lineHeight: calc(var(--fontSize) * 1.5);
 
-  --spacing: 2rem;
+  --spacing: clamp(1.25rem, , 5vw, 2rem);
   --spacingv: calc(var(--lineHeight) / 2);
 
   --columnGap: 2rem;
@@ -176,11 +176,12 @@ h1,
   margin-left: calc(3rem / -20);
   font-weight: 700;
   font-size: calc(var(--fontSize) * 3);
-  line-height: calc(var(--spacingv) * 6);
+  line-height: calc(var(--fontSize) * 3.5);
   letter-spacing: -0.07em;
 }
 
 h1 {
+  margin-top: calc(var(--spacingv) * 2);
   margin-bottom: calc(var(--spacingv) * 2);
 }
 
@@ -200,7 +201,7 @@ h3,
 .h3 {
   font-weight: 700;
   font-weight: 650;
-  font-size: calc(var(--fontSize) * 2.25);
+  font-size: calc(var(--fontSize) * 2);
   line-height: calc(var(--spacingv) * 3);
   letter-spacing: -0.018em;
 }
@@ -537,7 +538,13 @@ img {
 }
 
 .columnList {
-  columns: 3;
+  columns: 2;
+}
+
+@media only screen and (min-width: 768px) {
+  .columnList {
+    columns: 3;
+  }
 }
 
 /* FOOTER */
