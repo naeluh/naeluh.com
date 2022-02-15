@@ -7,7 +7,7 @@
 }
 
 :root {
-  --fontSize: clamp(1.25rem, 5vw, 1.25rem);
+  --fontSize: clamp(1rem, 5vw, 1.5rem);
   /*--emsAcrossViewport: 80;
   --fontSize: calc(100vw / var(--emsAcrossViewport));*/
 
@@ -175,13 +175,13 @@ h1,
 .h1 {
   margin-left: calc(3rem / -20);
   font-weight: 700;
-  font-size: calc(var(--fontSize) * 3);
-  line-height: calc(var(--fontSize) * 3.5);
+  font-size: calc(var(--fontSize) * 2);
+  line-height: calc(var(--fontSize) * 2.1);
   letter-spacing: -0.07em;
 }
 
 h1 {
-  margin-top: calc(var(--spacingv) * 2);
+  margin-top: calc(var(--spacingv) * 5.5);
   margin-bottom: calc(var(--spacingv) * 2);
 }
 
