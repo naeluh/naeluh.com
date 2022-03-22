@@ -1,3 +1,7 @@
+.id--container {
+  display: none;
+}
+
 @media print {
   /* All your print styles go here */
 
@@ -62,11 +66,43 @@
     page-break-before: right;
   }
 
+  main {
+    margin-right: 50mm;
+  }
+
   @page {
-    size: auto; /* auto is the initial value */
+    position: relative;
+    width: 8.5in;
+    height: 11in;
 
     /* this affects the margin in the printer settings */
-    margin-right: 50mm;
+
     margin-left: 0;
+  }
+
+  .id--container {
+    position: fixed;
+    top: 0;
+    right: 0;
+    display: block;
+    width: 1.25in;
+  }
+
+  .id--container .phone,
+  .id--container .email a,
+  .id--container .email,
+  .id--container .address {
+    font-weight: 500;
+    font-size: 12px !important;
+    line-height: 1.35 !important;
+    text-align: right;
+  }
+
+  .id--container .name {
+    font-weight: 700;
+    font-size: 14px !important;
+    line-height: 1.25 !important;
+    text-align: right;
+    text-transform: uppercase;
   }
 }
