@@ -1,0 +1,19 @@
+.skipNavigationLink {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  transition: 0;
+  clip: rect(1px, 1px, 1px, 1px);
+}
+
+.skipNavigationLink:focus {
+  position: absolute;
+  z-index: 1200;
+  width: fit-content;
+  height: 4.5rem;
+  padding-right: 2rem;
+  padding-left: 2rem;
+  line-height: 4.5rem;
+  clip: unset;
+}
