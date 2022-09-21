@@ -38,7 +38,7 @@
   },
   "license": "ISC",
   "devDependencies": {
-    "@netlify/ipx": "1.0.1",
+    "@netlify/ipx": "1.2.3",
     "@netlify/plugin-sitemap": "^0.8.1",
     "@types/react": "^17.0.41",
     "babel-plugin-graphql-tag": "^3.3.0",
