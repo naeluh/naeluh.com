@@ -454,7 +454,7 @@ hr {
 fieldset {
   margin-top: 1rem;
   padding: 2rem 0;
-  border: 1px solid var(--nc-bg-3);
+  border: none;
 }
 
 legend {

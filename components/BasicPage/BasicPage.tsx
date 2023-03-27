@@ -1,5 +1,4 @@
 import { useQuery } from '@apollo/react-hooks';
-import { NetworkStatus } from 'apollo-client';
 import gql from 'graphql-tag';
 import ErrorMessage from '../ErrorMessage';
 import ReactMarkdown from 'react-markdown';
@@ -32,7 +31,7 @@ export default function BasicPage() {
     url: router.pathname.replace('/', ''),
   };
 
-  const { loading, error, data, networkStatus } = useQuery(ALL_POSTS_QUERY, {
+  const { loading, error, data } = useQuery(ALL_POSTS_QUERY, {
     variables: allPostsQueryVars,
     // Setting this value to true will make the component rerender when
     // the "networkStatus" changes, so we are able to know if it is fetching
@@ -40,10 +39,8 @@ export default function BasicPage() {
     notifyOnNetworkStatusChange: true,
   });
 
-  const loadingMorePosts = networkStatus === NetworkStatus.fetchMore;
-
   if (error) return <ErrorMessage message="Error loading posts." />;
-  if (loading && !loadingMorePosts) return <div>Loading</div>;
+  if (loading) return <div>Loading</div>;
 
   const { basics } = data;
 
