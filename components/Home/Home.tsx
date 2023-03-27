@@ -11,7 +11,7 @@ const Home = () => {
   const [color, setColor] = useState<string>('');
   const [random, setRandom] = useState('');
   const size = useWindowSize();
-  const debouncedSize = useDebounce(size, 100);
+  const debouncedSize = useDebounce(size, 200);
 
   const luma = (color: string) => {
     var rgb = typeof color === 'string' ? hexToRGBArray(color) : color;
@@ -93,19 +93,14 @@ const Home = () => {
         <p>
           Samples of my work can be found{' '}
           <Link href="/work">
-            <a>
-              <span>here</span>
-            </a>
+            <span>here</span>
           </Link>
           .
         </p>
 
         <p>
           If you would like to contact me or if you have any questions click{' '}
-          <Link href="/contact">
-            <a>here</a>
-          </Link>
-          .
+          <Link href="/contact">here</Link>.
         </p>
       </div>
 
@@ -113,7 +108,7 @@ const Home = () => {
         id={styles.block}
         style={{
           transform: random,
-          backgroundColor: color,
+          background: `linear-gradient(${color} 0%, transparent 100%)`,
           height: boxHeight ? boxHeight : 0,
           width: boxWidth ? boxWidth : 0,
         }}

@@ -17,30 +17,24 @@ const Card: React.FC<{ post?: PostObject; title?: string }> = ({
 }) => {
   return post ? (
     <>
-      <Link href={`/work/${post.Slug}`}>
-        <a className={styles.img} href={`/work/${post.Slug}`}>
-          {post.Image && (
-            <div>
-              <img
-                src={`https://strapi.hulea.org/${post.Image.url}`}
-                alt={post.Title}
-                className={styles.imageContainer}
-              />
-            </div>
-          )}
-        </a>
+      <Link href={`/work/${post.Slug}`} className={styles.img}>
+        {post.Image && (
+          <div>
+            <img
+              src={`https://strapi.hulea.org/${post.Image.url}`}
+              alt={post.Title}
+              className={styles.imageContainer}
+            />
+          </div>
+        )}
       </Link>
       {title === undefined ? (
         <Link href={`/work/${post.Slug}`}>
-          <a href={`/work/${post.Slug}`}>
-            <h4>{post.Title}</h4>
-          </a>
+          <h4>{post.Title}</h4>
         </Link>
       ) : (
         <Link href={`/work/${post.Slug}`}>
-          <a href={`/work/${post.Slug}`}>
-            <h4>{post.Title}</h4>
-          </a>
+          <h4>{post.Title}</h4>
         </Link>
       )}
     </>

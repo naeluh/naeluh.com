@@ -63,10 +63,8 @@ const Header: React.FC<{}> = () => {
           <ul>
             {links.map(({ name, href }) => (
               <li key={name}>
-                <Link href={href}>
-                  <a onClick={toggleNav} href={href}>
-                    {name}
-                  </a>
+                <Link href={href} onClick={toggleNav}>
+                  {name}
                 </Link>
               </li>
             ))}
