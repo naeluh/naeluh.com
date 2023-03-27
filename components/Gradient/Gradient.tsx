@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from 'react';
+import { useRouter } from 'next/router';
+
 import useWindowSize from '../../hooks/useWindowSize';
 import useDebounce from '../../hooks/useDebounce';
 import styles from './gradient.module.css';
 
 const Gradient = () => {
+  const router = useRouter();
   const [boxHeight, setHeight] = useState<number | null>(null);
   const [boxWidth, setWidth] = useState<number | null>(null);
   const [color, setColor] = useState<string>('');
@@ -77,7 +80,7 @@ const Gradient = () => {
 
   useEffect(() => {
     updateBlock();
-  }, []);
+  }, [router.query.slug]);
 
   return (
     <>
