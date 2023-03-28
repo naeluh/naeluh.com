@@ -1,0 +1,14 @@
+#block {
+  overflow-x: hidden;
+}
+
+#block {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+.clear {
+  clear: both;
+}

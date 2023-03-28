@@ -36,15 +36,11 @@ const Footer = () => (
       </p>
       <p>
         {' '}
-        <Link href="/about">
-          <a title="About">About</a>
-        </Link>
+        <Link href="/about">About</Link>
       </p>
       <p>
         {' '}
-        <Link href="/contact">
-          <a title="Contact">Contact</a>
-        </Link>
+        <Link href="/contact">Contact</Link>
       </p>
     </div>
   </footer>

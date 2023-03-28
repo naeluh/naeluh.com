@@ -1,6 +1,7 @@
 .react-form {
   width: 100%;
   max-width: max(5vw, 768px);
+  padding-bottom: 2em;
 }
 
 .form-group {

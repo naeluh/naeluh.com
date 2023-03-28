@@ -3,6 +3,7 @@ import ReactMarkdown from 'react-markdown';
 import rehypeRaw from 'rehype-raw';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
+import Gradient from '../Gradient';
 
 const Page: React.FC<{ data: { Title: string; Body: string; id: string } }> = ({
   data,
@@ -35,6 +36,7 @@ const Page: React.FC<{ data: { Title: string; Body: string; id: string } }> = ({
           </div>
         </div>
       )}
+      <Gradient />
     </section>
   );
 };

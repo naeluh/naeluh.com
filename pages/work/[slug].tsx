@@ -4,6 +4,7 @@ import App from '../../components/App';
 import Header from '../../components/Header';
 import Post from '../../components/Post';
 import Footer from '../../components/Footer';
+import Gradient from '../../components/Gradient';
 import { getPosts, getPost } from '../../lib/api';
 
 interface PostObject {
@@ -24,6 +25,7 @@ const Slug: React.FC<{ post: PostObject[]; posts: PostObject[] }> = ({
       <Header />
       <Post post={post} posts={posts} />
       <Footer />
+      <Gradient />
     </App>
   );
 };
