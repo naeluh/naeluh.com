@@ -142,18 +142,22 @@
   overflow-y: auto;
   background-color: var(--nc-bg-2);
   position: relative;
-  height: 100%;
+  height: 100svh;
+  height: 100vh;
 }
 
 .overlay ul li {
   margin: 0;
   padding: 0;
+  height: 25svh;
+  height: 25vh;
 }
 
 .overlay ul li a {
   display: flex;
   align-items: center;
   justify-content: flex-start;
+  height: 25svh;
   height: 25vh;
   margin-bottom: 0;
   padding: 0 max(10vw, 2rem);
