@@ -111,7 +111,7 @@
 
 .overlay li a {
   text-decoration: none;
-  background-color: var(--nc-tx-2);
+  background-color: var(--tx-opacity-0-75);
   border: none;
 }
 
@@ -129,6 +129,9 @@
   margin: 0;
   padding: 0;
   list-style: none;
+  height: 100vh;
+  background-color: var(--nc-bg-1);
+  padding-top: 25vh;
 }
 
 .overlay ul li {
@@ -140,7 +143,7 @@
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  height: 25vh;
+  height: 12vh;
   margin-bottom: 0;
   padding: 0 max(10vw, 2rem);
   font-weight: 700;
@@ -148,7 +151,7 @@
   text-align: right;
   text-transform: uppercase;
   text-decoration: none;
-  background-color: var(--tx-opacity-0-5);
+  background-color: var(--tx-opacity-0-75);
 }
 
 .overlay ul li a::after {
