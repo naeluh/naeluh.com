@@ -52,23 +52,25 @@ const Header: React.FC<{}> = () => {
           className={styles.overlay}
           aria-label={!isActive ? 'navigation closed' : 'navigation open'}
         >
-          <button
-            role="button"
-            aria-label="navigation close button"
-            onClick={toggleNav}
-            className={styles.close}
-          >
-            <span>close</span>
-          </button>
-          <ul>
-            {links.map(({ name, href }) => (
-              <li key={name}>
-                <Link href={href} onClick={toggleNav}>
-                  {name}
-                </Link>
-              </li>
-            ))}
-          </ul>
+          <div className={styles.innerOverlay}>
+            <button
+              role="button"
+              aria-label="navigation close button"
+              onClick={toggleNav}
+              className={styles.close}
+            >
+              <span>close</span>
+            </button>
+            <ul>
+              {links.map(({ name, href }) => (
+                <li key={name}>
+                  <Link href={href} onClick={toggleNav}>
+                    {name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
       </nav>
     </header>

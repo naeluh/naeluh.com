@@ -33,7 +33,7 @@
 .nav > button {
   position: fixed;
   top: 0;
-  right: 2em;
+  right: 0.5em;
   z-index: 9999;
   width: 50px;
   height: 50px;
@@ -125,10 +125,17 @@
   width: 0px;
 }
 
+.innerOverlay {
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+
 .overlay ul {
   margin: 0;
   padding: 0;
   list-style: none;
+  overflow-y: scroll;
 }
 
 .overlay ul li {
@@ -140,7 +147,7 @@
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  height: 25vh;
+  height: 36vh;
   margin-bottom: 0;
   padding: 0 max(10vw, 2rem);
   font-weight: 700;
@@ -148,7 +155,7 @@
   text-align: right;
   text-transform: uppercase;
   text-decoration: none;
-  background-color: var(--tx-opacity-0-5);
+  background-color: var(--nc-bg-2);
 }
 
 .overlay ul li a::after {
@@ -177,16 +184,18 @@
 }
 
 .overlay button.close {
-  position: absolute;
-  top: 20px;
-  left: 40px;
+  position: fixed;
+  top: inherit;
+  bottom: 0.5em;
+  left: 0.5em;
   z-index: 9999;
-  padding: 10px;
+  padding: 0.2em 0.5em;
   color: var(--nc-tx-2);
   font-weight: bolder;
   font-size: 2rem;
   background-color: var(--nc-bg-1);
   cursor: pointer;
+  height: fit-content;
 }
 
 .overlay button.close:hover {
