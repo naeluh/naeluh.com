@@ -6,7 +6,7 @@ import styles from './post.module.css';
 interface PostObject {
   Slug?: string;
   Title?: string;
-  Image?: { url?: string };
+  Image?: { url: string };
   Description?: string;
   id?: string;
   Link?: string;
@@ -26,11 +26,14 @@ const Post: React.FC<{
 
       <div key={post[0].id}>
         <h1>{post[0].Title}</h1>
-        {post[0].Image && (
+        {post[0]?.Image?.url && (
           <div className={styles.imgInnerContainer}>
             <img
               className={styles.imgContainer}
-              src={`https://strapi.hulea.org/${post[0].Image.url}`}
+              src={`/images/${post[0]?.Image?.url.replace(
+                '/uploads/',
+                ''
+              )}.webp`}
               alt={post[0].Title}
             />
           </div>

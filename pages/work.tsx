@@ -4,7 +4,7 @@ import Header from '../components/Header';
 import PostList from '../components/PostList';
 import Footer from '../components/Footer';
 
-import { getPosts } from '../lib/api';
+import { getPosts } from '../lib/api.js';
 
 const Work: React.FC<{ preview: boolean; posts: Array<object> }> = ({
   preview,

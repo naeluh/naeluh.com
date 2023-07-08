@@ -2,7 +2,7 @@ import App from '../components/App';
 import Header from '../components/Header';
 import Page from '../components/Page';
 import Footer from '../components/Footer';
-import { getPage } from '../lib/api';
+import { getPage } from '../lib/api.js';
 
 const About: React.FC<{ page?: any }> = ({ page }) => {
   return (
