@@ -30,10 +30,14 @@ const Post: React.FC<{
           <div className={styles.imgInnerContainer}>
             <img
               className={styles.imgContainer}
-              src={`/images/${post[0]?.Image?.url.replace(
-                '/uploads/',
-                ''
-              )}.webp`}
+              src={
+                post[0]?.Image?.url.indexOf('.gif') !== -1
+                  ? `/images/${post[0]?.Image?.url.replace('/uploads/', '')}`
+                  : `/images/${post[0]?.Image?.url.replace(
+                      '/uploads/',
+                      ''
+                    )}.webp`
+              }
               alt={post[0].Title}
             />
           </div>

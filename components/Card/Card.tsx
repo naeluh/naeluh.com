@@ -5,7 +5,7 @@ import styles from '../PostList/postList.module.css';
 interface PostObject {
   Slug?: string;
   Title?: string;
-  Image?: { url?: string };
+  Image?: { url: string };
   Description?: string;
   id?: string;
   Link?: string;
@@ -18,10 +18,14 @@ const Card: React.FC<{ post?: PostObject; title?: string }> = ({
   return post ? (
     <>
       <Link href={`/work/${post.Slug}`} className={styles.img}>
-        {post.Image && (
+        {post?.Image?.url && (
           <div>
             <img
-              src={`https://strapi.hulea.org/${post.Image.url}`}
+              src={
+                post?.Image?.url.indexOf('.gif') !== -1
+                  ? `/images/${post?.Image?.url.replace('/uploads/', '')}`
+                  : `/images/${post?.Image?.url.replace('/uploads/', '')}.webp`
+              }
               alt={post.Title}
               className={styles.imageContainer}
             />

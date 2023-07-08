@@ -5,7 +5,7 @@
     "dev": "next",
     "build": "next build",
     "start": "next start",
-    "build:images": "node ./lib/getImages.js",
+    "build:images": "rm ./public/images/.gitkeep && node ./lib/getImages.js",
     "dev:netlify": "next",
     "build:netlify": "npm run build:images && next build && next export",
     "start:netlify": "serve ./out"
