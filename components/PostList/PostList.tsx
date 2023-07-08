@@ -15,7 +15,7 @@ interface PostObject {
 
 const PostList: React.FC<{
   preview?: boolean;
-  posts?: PostObject[];
+  posts?: [];
   title?: string;
 }> = ({ posts, preview, title }) => {
   const previewClass = preview ? styles.previewList : '';
@@ -30,7 +30,7 @@ const PostList: React.FC<{
       <ul>
         {posts &&
           posts.map(
-            (post: PostObject) =>
+            (post: any) =>
               post.Slug !== title && (
                 <li key={post.Slug}>
                   <Card post={post} title={title} />

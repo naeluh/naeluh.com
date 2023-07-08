@@ -13,8 +13,8 @@ interface PostObject {
 }
 
 const Post: React.FC<{
-  post?: PostObject[];
-  posts?: PostObject[];
+  post?: any;
+  posts?: any;
 }> = ({ post, posts }) => {
   return post ? (
     <section>
