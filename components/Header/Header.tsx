@@ -23,7 +23,10 @@ const links = [
 
 const Header: React.FC<{}> = () => {
   const [isActive, setIsActive] = useState(false);
-  const toggleNav = () => setIsActive(!isActive);
+  const toggleNav = () => {
+    alert(isActive);
+    setIsActive(!isActive);
+  };
 
   useEffect(() => {
     const html = document.querySelector('html');
