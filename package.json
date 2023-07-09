@@ -5,8 +5,9 @@
     "dev": "next",
     "build": "next build",
     "start": "next start",
+    "build:images": "rm ./public/images/.gitkeep && node ./lib/getImages.js",
     "dev:netlify": "next",
-    "build:netlify": "next build && next export",
+    "build:netlify": "npm run build:images && next build && next export",
     "start:netlify": "serve ./out"
   },
   "dependencies": {

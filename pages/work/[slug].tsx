@@ -7,23 +7,11 @@ import Footer from '../../components/Footer';
 import Gradient from '../../components/Gradient';
 import { getPosts, getPost } from '../../lib/api';
 
-interface PostObject {
-  Slug?: string;
-  Title?: string;
-  Image?: { url?: string };
-  Description?: string;
-  id?: string;
-  Link?: string;
-}
-
-const Slug: React.FC<{ post: PostObject[]; posts: PostObject[] }> = ({
-  post,
-  posts,
-}) => {
+const Slug: React.FC<{ post: []; posts: [] }> = ({ post, posts }) => {
   return (
     <App>
       <Header />
-      <Post post={post} posts={posts} />
+      <Post post={post || {}} posts={posts || []} />
       <Footer />
       <Gradient />
     </App>
