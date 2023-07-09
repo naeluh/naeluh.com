@@ -4,6 +4,8 @@ import Head from 'next/head';
 import { initGA, logPageView } from '../lib/analytics';
 import type { AppProps as NextAppProps } from 'next/app';
 import { DocumentContext } from 'next/document';
+import Header from '../components/Header/Header';
+import Footer from '../components/Footer/Footer';
 
 import '../css/font/inter.css';
 import '../css/main.css';
@@ -32,6 +34,7 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
         ></meta>
         <meta httpEquiv="X-UA-Compatible" content="IE=edge"></meta>
       </Head>
+      <Header />
       <Component {...pageProps} />
     </>
   );
