@@ -67,12 +67,20 @@
   }
 
   h1 {
-    break-before: right;
+    page-break-before: always;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5 {
+    page-break-after: avoid;
   }
 
   document {
     display: block;
-    page-break-before: right;
+    break-before: always;
   }
 
   main {
@@ -83,6 +91,8 @@
     position: relative;
     width: 8.5in;
     height: 11in;
+    border-top: 0.25in solid #fff;
+    border-bottom: 0.25in solid #fff;
 
     /* this affects the margin in the printer settings */
 
@@ -91,8 +101,8 @@
 
   .id--container {
     position: fixed;
-    top: 0;
-    right: 0;
+    top: 0.125in;
+    right: 0.25in;
     display: block;
     width: 1.25in;
   }
