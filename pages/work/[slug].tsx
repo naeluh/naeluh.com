@@ -1,7 +1,6 @@
 import React from 'react';
 import { GetStaticPaths } from 'next';
 import App from '../../components/App';
-import Header from '../../components/Header';
 import Post from '../../components/Post';
 import Footer from '../../components/Footer';
 import Gradient from '../../components/Gradient';
@@ -10,7 +9,6 @@ import { getPosts, getPost } from '../../lib/api';
 const Slug: React.FC<{ post: []; posts: [] }> = ({ post, posts }) => {
   return (
     <App>
-      <Header />
       <Post post={post || {}} posts={posts || []} />
       <Footer />
       <Gradient />
