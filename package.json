@@ -42,7 +42,7 @@
     "@types/react": "^18.2.0",
     "babel-plugin-graphql-tag": "^3.3.0",
     "netlify-plugin-subfont": "^6.0.0",
-    "stylelint": "^15.6.0",
+    "stylelint": "^15.10.1",
     "stylelint-config-rational-order": "^0.1.2",
     "typescript-plugin-css-modules": "^5.0.1"
   }
