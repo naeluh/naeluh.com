@@ -14,7 +14,14 @@ const Page: React.FC<{ data: { Title: string; Body: string; id: string } }> = ({
       <Head>
         <title>{data.Title}</title>
         <meta name="title" content={data.Title} />
-        <meta name="description" content={data.Body} />
+        <meta
+          name="description"
+          content={
+            router.pathname === '/about'
+              ? 'Professional experience, skills, and background of Nick Hulea'
+              : data.Body
+          }
+        />
       </Head>
       <div key={data.id}>
         <h1>{data.Title}</h1>

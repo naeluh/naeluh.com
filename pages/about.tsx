@@ -2,7 +2,7 @@ import App from '../components/App';
 import Header from '../components/Header';
 import Page from '../components/Page';
 import Footer from '../components/Footer';
-import { getPage } from '../lib/api.js';
+import { getMarkdownPage } from '../lib/getMarkdownPage.js';
 
 const About: React.FC<{ page?: any }> = ({ page }) => {
   return (
@@ -16,9 +16,9 @@ const About: React.FC<{ page?: any }> = ({ page }) => {
 
 export default About;
 
-export async function getStaticProps({ preview = false }) {
-  const page = await getPage('about');
+export async function getStaticProps() {
+  const page = getMarkdownPage('about', 'About');
   return {
-    props: { preview, page },
+    props: { page },
   };
 }
