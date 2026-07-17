@@ -1,6 +1,5 @@
 import React from 'react';
 import Link from 'next/link';
-import Head from 'next/head';
 import styles from './home.module.css';
 import Gradient from '../Gradient';
 
@@ -8,12 +7,6 @@ const Home = () => {
   return (
     <section className={styles.center}>
       <div className={styles.innerCenter}>
-        <Head>
-          <title>Nick Hulea</title>
-          <meta name="title" content="Nick Hulea&#39;s Website!" />
-          <meta name="description" content="Nick Hulea&#39;s Website!" />
-        </Head>
-
         <h1>Welcome!</h1>
 
         <p>Hello you have arrived at the website of Nick Hulea !</p>

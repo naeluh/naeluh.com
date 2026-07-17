@@ -4,9 +4,9 @@
 
 - **PepsiCo SAP AIOps Platform**: built a Next.js/React frontend with Python FastAPI/FastMCP services integrating SAP OData and ServiceNow, and LangGraph orchestration for deep agents; deployed via GitOps to AKS.
 - **PwC ERP AI Delivery Platform**: built a TypeScript MCP server and FastAPI backend (PostgreSQL/pgvector) with Entra ID auth; deployed to AKS via GitHub Actions.
-- **Boston Scientific AP Invoice Platform**: built an AI invoice-extraction platform (Next.js UI, Python FastAPI/MCP services, AWS Lambdas, DynamoDB/S3/OpenSearch); deployed to AWS EKS via GitLab CI/Helm.
+- **Boston Scientific AP Invoice Platform**: built an AI invoice-extraction platform (Next.js UI, Python FastAPI/MCP services, AWS Lambdas, DynamoDB/S3/OpenSearch) with Claude handling document extraction and classification, matching each document to vendor/PO and non-PO records via Athena queries against SAP data synced to Parquet; deployed to AWS EKS via GitLab CI/Helm.
 
-**Technologies**: Python, FastAPI, LangGraph, PostgreSQL/pgvector, Docker, Kubernetes (AKS/EKS), AWS (Lambda, DynamoDB, S3), Azure (App Service, Entra ID), GitHub Actions, GitLab CI, GitOps, React, Next.js, TypeScript, Node.js, Tailwind
+**Technologies**: Python, Node.js, FastAPI, LangGraph, Claude API, AWS Bedrock, PostgreSQL/pgvector, Parquet, Athena, Docker, Kubernetes (AKS/EKS), AWS (Lambda, DynamoDB, S3), Azure (App Service, Entra ID), GitHub Actions, GitLab CI, GitOps, React, Next.js, TypeScript, Tailwind
 
 #### 2020-2025 Third and Grove - Senior Frontend Engineer
 
@@ -21,8 +21,8 @@ To build development environments we use Docker, Vagrant and Lando. We use Travi
 - Created Frontend in Storybook and implemented the backend integration with preprocess functions
 - Architected and developed React Applications for 4 Algolia searches
 - All component were integrated into Layout Builder
-- Accessilty tested to WCAG AAA
-- Required Global State Managament
+- Accessibility tested to WCAG AA
+- Required Global State Management
 - Worked with Third and Grove designers to build features into website using Figma
 
 **Third and Grove** - [https://www.thirdandgrove.com/](https://www.thirdandgrove.com/) - **Technical Architect, Fullstack Developer** - **Frontend**: React, Next.js, TypeScript, Tailwind, GSAP **Backend**: Drupal 10, Node.js, GraphQL **Deploy**: Netlify, Pantheon **CI**: Github Actions
@@ -37,8 +37,8 @@ To build development environments we use Docker, Vagrant and Lando. We use Travi
 - Server-side form processing with Next.js API routes and server actions
 - Comprehensive accessibility testing and compliance with WCAG standards
 - Built reusable component library with full TypeScript support
-- Required Global State Managament
-- Accessilty tested to WCAG AAA
+- Required Global State Management
+- Accessibility tested to WCAG AAA
 - Building complex animations with GSAP
 
 **AppleTree Institute for Education** - [https://www.appletreeinstitute.org/](https://www.appletreeinstitute.org/) - **Technical Architect, Fullstack Developer** - **Frontend**: React, TypeScript, SCSS, SWR **Design System**: Storybook **Backend**: PHP, Node.js, MYSQL, Drupal **Deploy**: Pantheon **CI**: Github Actions
@@ -46,7 +46,7 @@ To build development environments we use Docker, Vagrant and Lando. We use Travi
 Every Child Ready is an application that requires single sign on to see. It is the first web application that Third and Grove has created and I helped lead the development. AppleTree is a online pre-K school platform that uses this application to schedule classes, write curriculum, grade students, track student attendance and many other data points to help educators edit the application.
 
 - Developed multiple API endpoints from MYSQL for CRUD application
-- Created and implemented API endpoint client side data consumption with caching and invaldation specific to each call to the API
+- Created and implemented API endpoint client side data consumption with caching and invalidation specific to each call to the API
 - Designed and developed deployment for React Application
 - Developed performance, accessibility and unit testing for component library
 - Worked with Third and Grove designers to build features into website using Figma
@@ -54,8 +54,8 @@ Every Child Ready is an application that requires single sign on to see. It is t
 - Site used Typescript for development
 - Used SWR to query MYSQL
 - The custom API that was built was protected by authentication.
-- Accessilty tested to WCAG AAA
-- Required Global State Managament
+- Accessibility tested to WCAG AAA
+- Required Global State Management
 
 **California Closets Refactor and Redesign : In Progress** - **Technical Architect, Fullstack and Frontend Developer** - **Frontend**: React, GSAP, Tailwind, TypeScript, GSAP **Design System**: Storybook **Backend**: Node.js, Next.js, Wordpress, Faust.js, PHP, WPGraphQL **Deploy**: WP Engine **CI**: Github Actions
 
@@ -69,20 +69,20 @@ Every Child Ready is an application that requires single sign on to see. It is t
 - Each commit is tested with Husky
 - Site is using Typescript for development and Codegen to get types from Wordpress for GraphQL
 - The GraphQL client was protected by authentication.
-- Accessilty tested to WCAG AAA
-- Required Global State Managament
+- Accessibility tested to WCAG AAA
+- Required Global State Management
 
 **King Arthur Baking Calendar Update** - [https://www.kingarthurbaking.com/baking-school/calendar](https://www.kingarthurbaking.com/baking-school/calendar) - **Lead Frontend** - **Frontend**: Twig Templates, React, TypeScript, SCSS, SWR, FullCalendar **Design System**: Storybook **Backend**: MYSQL, Drupal, PHP, Node.js **Deploy**: Acquia **CI**: Github Actions
 
-- King Arthur updated their calendar to utlize a new sign up platform.
+- King Arthur updated their calendar to utilize a new sign up platform.
 - Designed and developed deployment for React Application
 - Utilizing the API provided from the platform we created a flow of events that were saved to Drupal MYSQL database.
-- Created and implemented API endpoint client side data consumption with caching and invaldation specific to each call to the API
+- Created and implemented API endpoint client side data consumption with caching and invalidation specific to each call to the API
 - Used SWR to query MYSQL
 - The custom API that was built was protected by authentication
 - Designed and developed deployment for React Application
-- Accessilty tested to WCAG AAA
-- Required Global State Managament
+- Accessibility tested to WCAG AAA
+- Required Global State Management
 - Worked with Third and Grove designers to build features into website using Figma
 
 **King Arthur Baking Mega Menu** - [https://www.kingarthurbaking.com/](https://www.kingarthurbaking.com/) - **Lead Frontend** -
@@ -94,7 +94,7 @@ Every Child Ready is an application that requires single sign on to see. It is t
 - There's a highly intensive cache strategy in place to limit requests from the Netlify functions.
 - Designed and developed deployment for React Application
 - The custom API that was built was protected by authentication.
-- Accessilty tested to WCAG AAA
+- Accessibility tested to WCAG AAA
 
 **Cross River** - [https://www.crossriver.com/](https://www.crossriver.com/) - **Technical Architect, Fullstack and Frontend Developer** - **Frontend**: Svelte, Astro.js, TypeScript, SCSS **Design System**: Storybook **Backend**: Node.js, Astro.js, Contentful **Deploy**: Netlify **CI**: Github Actions
 
@@ -196,7 +196,7 @@ Every Child Ready is an application that requires single sign on to see. It is t
 
 **[QUIRE](https://quire.getty.edu/): Open-source multiformat publishing tool**
 
-I was the maintainer of Getty Publications open-source digital publishing tool Quire. Quire is a tool that can create dynamic publications in a variety of formats, including web, print, and e-book. Quire is an ideal tool for publishing beautiful, scholarly digital books optimized for visual imagery and designed to ensure publication content is widely accessible and stable. Quire leverages Nodejs for the CLI, Hugo/11ty (Static Site Generator), Bulma, Pandoc (File Converter), Prince XML (web to PDF). Quire adheres to strict accessibility standards of WCAG. Quire also has flexible deployment built in, deploy to your favorite serverless network. Theme is tested with Cypress/Jest, CLI is tested with Jest. CLI bundled with RollupJS. CircleCI for integration and fail safe releases. I built a multi environment Webpack configuration to bundle JavaScript and CSS for the site Hugo generates. Quire also includes an executable binary I wrote in GO that could be called from the CLI to transform images into IIIF format, a museum standard.
+I was the lead maintainer of Getty Publications open-source digital publishing tool Quire and brought it to its first public release. Quire is a tool that can create dynamic publications in a variety of formats, including web, print, and e-book. Quire is an ideal tool for publishing beautiful, scholarly digital books optimized for visual imagery and designed to ensure publication content is widely accessible and stable. Quire leverages Nodejs for the CLI, Hugo/11ty (Static Site Generator), Bulma, Pandoc (File Converter), Prince XML (web to PDF). Quire adheres to strict accessibility standards of WCAG. Quire also has flexible deployment built in, deploy to your favorite serverless network. Theme is tested with Cypress/Jest, CLI is tested with Jest. CLI bundled with RollupJS. CircleCI for integration and fail safe releases. I built a multi environment Webpack configuration to bundle JavaScript and CSS for the site Hugo generates. Quire also includes an executable binary I wrote in GO that could be called from the CLI to transform images into IIIF format, a museum standard.
 
 **Getty Search** - **Backend**: Apache Nutch, Elastic Stack **Frontend**: Vue, Vuex **Testing**: Cypress/Jest **Integration**: CircleCI **Deployment**: AWS, Netlify
 
@@ -208,7 +208,7 @@ The docent site was a major refactor since the last site was built 7 years ago. 
 
 _**Bauhaus Beginnings: Building the New Artist**_ - **Frontend**: Quire **Backend**: Markdown files **Integration**: CircleCI **Deployment**: Netlify.
 
-The Bauhaus 100th anniversary site for the Getty Research Institute site was built using the CLI tool I maintained. I worked with our designer to build the site from Figma. Several writers from the Getty Research team wrote the content in markdown files and made use of various custom shortcodes and templates that I created for the Quire’s starter theme, as well as custom themes that I created for this site.[https://www.getty.edu/research/exhibitions_events/exhibitions/bauhaus/new_artist/](https://www.getty.edu/research/exhibitions_events/exhibitions/bauhaus/new_artist/)
+The Bauhaus 100th anniversary site for the Getty Research Institute site was built using the CLI tool I maintained. I worked with our designer to build the site from Figma, and designed the logo and homepage animation. Several writers from the Getty Research team wrote the content in markdown files and made use of various custom shortcodes and templates that I created for the Quire’s starter theme, as well as custom themes that I created for this site.[https://www.getty.edu/research/exhibitions_events/exhibitions/bauhaus/new_artist/](https://www.getty.edu/research/exhibitions_events/exhibitions/bauhaus/new_artist/)
 
 **Redesign: getty.edu** - **Frontend**: Nuxt.Js, GraphQL, Bulma, Styleguide: Storybook.js, **Backend**: Contentful, **Deploy**: Netlify
 
@@ -285,10 +285,10 @@ Building, maintaining, and designing the Digital properties at Flaunt magazine r
 **Deploy**: Pantheon
 **CI**: Github Actions
 
-- Created custom Drupal 11 components frontend and backend development
+- Built custom Drupal 11 components from Figma, frontend and backend development
 - Custom module development to extend Drupal functionality
-- Design and development consultation
-- Major modifcations to calendar to frontend and backend of event display
+- Design and development consultation — an ongoing relationship over a decade after leaving NHMLA's staff role
+- Major modifications to calendar frontend and backend event display
 
 #### [Caltech Alumni Association](https://alumni.caltech.edu/)
 
@@ -389,6 +389,18 @@ Mamalagels was built to sell custom products in a specific geolocation with a cu
 
 </div>
 
+#### GenAI
+
+<div class="columnList">
+
+- LangGraph
+- MCP (FastMCP + TS SDK)
+- Claude API
+- AWS Bedrock
+- ChromaDB
+
+</div>
+
 #### CMS, Frameworks and Libraries
 
 <div class="columnList">
@@ -458,8 +470,7 @@ Mamalagels was built to sell custom products in a specific geolocation with a cu
 - 2021 22nd annual Media &amp; Technology MUSE Awards Juror for category 2020 Response
 - 2020 The American Alliance of Museums MUSE Award Winner for The Bauhaus 100th Anniversary site for the Getty Research Institute
 - 2019 The American Alliance of Museums MUSE Award Winner for The Getty Docent Site
-- 2019 Webby Award catergory Weird for cat-bounce.com
+- 2019 Webby Award category Weird for cat-bounce.com
 - Certificate of achievement from Mayor Antonio Villaraigosa for revitalization project
-- Folio Ozzie Award
-- Best Overall Design, Consumer Silver Award - Flaunt Magazine April, 2010
+- Folio Ozzie Award — Best Overall Design, Consumer, Silver Award - Flaunt Magazine April, 2010
 - Best Cover, Consumer Under 250,000 Circulation Bronze Award - Flaunt Magazine: The Census Issue April, 2010

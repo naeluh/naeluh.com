@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+'use client';
 
-import fetch from 'isomorphic-unfetch';
+import React, { useState } from 'react';
 
 interface HandleNameChangeInterface {
   target: HTMLInputElement | HTMLTextAreaElement;
@@ -154,7 +154,6 @@ const Form = () => {
           <button
             id="formButton"
             className="button btn btn btn-click btn-clicka"
-            placeholder="Send message"
             type="submit"
           >
             Send
